@@ -536,6 +536,21 @@ Result[3]:=MPM.ORT17;
 
 end;
 
+function LoadDopNegStress( var Error:Integer): TStress;
+VAR
+  MPM       : TMainParamsMaterial;
+BEGIN
+
+Form_Load(Project_GetFormFile);
+
+MPM:=GetMainParamMaterial;
+
+Error:=0;
+Result[1]:=MPM.ORT4;
+Result[2]:=MPM.ORT11;
+Result[3]:=MPM.ORT18;
+end;
+
 PROCEDURE TShowMovingsForm.SaveForm(Name:STRING);
 VAR
   Registry:TRegistry;
@@ -3358,9 +3373,11 @@ PROCEDURE TShowMovingsForm.UseTestElements(Canvas:TCanvas);
  VAR
   OneElement   : TOneElement;
   DopStress    : TStress;
+  DopNegStress    : TStress;
   Error        : Integer;
   OneNode      : TOneNode;
   findlevel    : INTEGER;
+  flag    : INTEGER;
 
 function GetMaxStress(OneElement   : TOneElement):real;
 var
@@ -3369,11 +3386,19 @@ begin
   result:=OneElement.Strain[1];
   for i:=1 to 7 do if Result<OneElement.Strain[i] then Result:=OneElement.Strain[i];
 end;
+function GetMinStress(OneElement   : TOneElement):real;
+var
+  i:word;
+begin
+  result:=0.0;
+  for i:=1 to 7 do if Result>OneElement.Strain[i] then Result:=OneElement.Strain[i];
+end;
 
 BEGIN
   IF TestElements.Checked THEN   BEGIN
 // считываем допустимое напряжения из файла "Data"
    DopStress:=LoadDopStress(Error);
+   DopNegStress:=LoadDopNegStress(Error);
    If Error<>0 Then Showmessage('Ошибка при считывании допустимого напряжения');
  WITH Canvas DO BEGIN
     Pen.Color:=clBlack;
@@ -3386,10 +3411,16 @@ BEGIN
         OneElement:=Elements_Result.GetCurrentElement;
          IF OneElement.strain[Form1.StressType.ItemIndex+1]=Elements_Result.max[Form1.StressType.ItemIndex+1] THEN findlevel:=Form1.ChangeLegend.Position
              ELSE findlevel:=Trunc(MyDiv((OneElement.strain[Form1.StressType.ItemIndex+1]+ABS(Elements_Result.min[Form1.StressType.ItemIndex+1])),Level))+1;
-        IF Abs(GetMaxStress(OneElement))>DopStress[OneElement.Material] THEN
-  // если КЭ испытывает напряжения больше допустимого напряжения, то показать сетку
+      // в текущем КЭ только и положительное и отрицательное напряжение больше допустимого
+      flag:=0;
+      IF (Abs(GetMaxStress(OneElement))>DopStress[OneElement.Material]) THEN flag:=flag+1;
+      IF (Abs(GetMinStress(OneElement))>Abs(DopNegStress[OneElement.Material])) THEN flag:=flag+2;
+      IF (flag>0) THEN
+      // если КЭ испытывает напряжения больше допустимого напряжения, то показать сетку
           Begin
-            Brush.Style:=bsDiagcross;
+            IF (flag=1) THEN Brush.Style:=bsVertical;
+            IF (flag=2) THEN Brush.Style:=bsHorizontal;
+            IF (flag=3) THEN Brush.Style:=bsCross;
             if LinesShow then
             begin
               ShowElement(Canvas,OneElement);    //kotov
