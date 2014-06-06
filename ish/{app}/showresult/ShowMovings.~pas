@@ -3424,7 +3424,6 @@ BEGIN
             if LinesShow then
             begin
               ShowElement(Canvas,OneElement);    //kotov
-              Brush.Color:=clGreen;
             end
             else
             begin
