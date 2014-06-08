@@ -468,6 +468,7 @@ VAR
   END;
 
 BEGIN
+  Form1.Visible := true;
   Registry:=TRegistry.Create;
   Registry.RootKey:=HKEY_CURRENT_USER;
   IF Registry.OpenKeyReadOnly(STRINGReg+'\'+Name) THEN BEGIN
@@ -491,7 +492,7 @@ BEGIN
 
     Force:=StringToColor(ReadSTRING('Force','clBlue'));
     BackGR:=StringToColor(ReadSTRING('BackGROUND','clWhite'));
-    EditForce.Text:=IntToStr(ReadInteger('ForceK',5));
+    EditForce.Text:=IntToStr(100);//ReadInteger('ForceK',5));
     ForceTrackBar.Position:= ForceTrackBar.min;
    // ForceTrackBar.Position:=ReadInteger('ForcePos',ROUND(ForceTrackBar.Max/2));
     EditMover.Text:=FloatToStr(ReadFloat('MoverK',10));
@@ -2798,6 +2799,7 @@ BEGIN
 
     Element := 1 + Elements_Result.FindElementByPoint(X,Y,Form1.Mover.Position*MoverK);
     Form1.InfoFiniteElementNumber.text:= IntToStr(Element);
+    Form1.Edit8.text:= IntToStr(Element);
     Form1.InfoX.text:=MyFloatToStr(st[1]);
     Form1.InfoY.text:=MyFloatToStr(st[2]);
     Form1.InfoXY.text:=MyFloatToStr(st[3]);

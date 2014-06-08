@@ -28,18 +28,17 @@ Type
                ForEdit             : TButton;
                Strandart           : TButton;
                Panel1              : TPanel;
-               Panel5              : TPanel;
                Panel6              : TPanel;
                GroupBox1           : TGroupBox;
                Label1              : TLabel;
                FormFileEdit        : TEdit;
                FormFileButton      : TButton;
-               BitBtn3             : TBitBtn;
-               BitBtn4             : TBitBtn;
     Label2: TLabel;
     Label3: TLabel;
-    Label4: TLabel;
     Splitter1: TSplitter;
+    Label5: TLabel;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
                Procedure FormShow(Sender: TObject);
                Procedure ForEditClick(Sender: TObject);
                Procedure OKClick(Sender: TObject);
@@ -77,7 +76,7 @@ Var
      FileName : String;
      pac      : String;
 Begin
-     Caption:='Добавление файлов к проекту' + ' '+ GetProjectName;
+     Caption:='Конфигурирование проекта' + ' '+ GetProjectName;
      FormFileEdit.Text:=Project_GetFormFile;
      StandartFiles.Items.Clear;
      EditFiles.Items.Clear;

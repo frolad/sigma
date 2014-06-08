@@ -108,17 +108,10 @@ Type
     PRM5: TEdit;
     Label53: TLabel;
     Label54: TLabel;
-    GroupBox4: TGroupBox;
-    RadioButton1: TRadioButton;
-    RadioButton2: TRadioButton;
     RadioButton4: TRadioButton;
     CheckBox1: TCheckBox;
     RadioButton3: TRadioButton;
     RadioButton5: TRadioButton;
-    Sila: TComboBox;
-    Label24: TLabel;
-    Dimension: TEdit;
-    Label23: TLabel;
     GroupBox5: TGroupBox;
     chb_grid_opt_dynamic: TCheckBox;
     chb_grid_opt: TCheckBox;
@@ -129,6 +122,12 @@ Type
     ProfilMethods: TGroupBox;
     genkng: TRadioButton;
     UnRazMethods: TGroupBox;
+    Label23: TLabel;
+    Label24: TLabel;
+    RadioButton1: TRadioButton;
+    RadioButton2: TRadioButton;
+    Label25: TLabel;
+    Label40: TLabel;
                Procedure CancelBtnClick(Sender: TObject);
                Procedure OKBtnClick(Sender: TObject);
                procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -229,9 +228,7 @@ Begin
      ORT2.text:=floattostr(MainParamsClass.MainParams.Mju);
      ORT3.text:=floattostr(MainParamsClass.MainParams.SB);
      L.text:=floattostr(MainParamsClass.MainParams.L);
-     Dimension.Text:=GetDimensionName(GetCurDim);
-     Sila.Text:=GetSilaName(GetSila);
-     Sila.ItemIndex:= GetSila;
+
 
      // Добавление материалов (kotov)
      ORT8.text:=floattostr(MainParamsClass.MainParamsMaterial.ORT8);
@@ -1166,7 +1163,7 @@ a2:
           Begin
                SetMainParam(MP);
                SetMainParamMaterial(MPM);  // Добавление материалов (kotov)
-               SetSila(Sila.ItemIndex);
+             //  SetSila(Sila.ItemIndex);
                SaveSdmFile;
              //  if SetForm1=nil then
              //  begin
@@ -1278,7 +1275,7 @@ procedure TMainParamsForm.Button1Click(Sender: TObject);
    Word.Selection.TypeParagraph;
    Word.Selection.Font.Bold := false;
 
-   Word.Selection.TypeText('Используемая сила :'+Sila.Text);
+  // Word.Selection.TypeText('Используемая сила :'+Sila.Text);
    Word.Selection.TypeParagraph;
    Word.Selection.Font.Bold := True;
    Word.Selection.TypeText('Номер материала - 1 :');
@@ -1334,7 +1331,7 @@ procedure TMainParamsForm.Button1Click(Sender: TObject);
    Word.Selection.TypeParagraph;
    Word.Selection.TypeText('Количество зон (inrg): '+INRG.Text);
    Word.Selection.TypeParagraph;
-   Word.Selection.TypeText('Размерность: '+Dimension.Text);
+ //  Word.Selection.TypeText('Размерность: '+Dimension.Text);
    Word.Selection.TypeParagraph;
    Word.Selection.Font.Bold := True;
    Word.Selection.TypeText('Свободные параметры :');

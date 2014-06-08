@@ -114,6 +114,8 @@ type
     StressType1: TRadioGroup;
     GroupBox10: TGroupBox;
     ZoneStress: TStringGrid;
+    Edit8: TEdit;
+    Label30: TLabel;
     procedure ZoneCheckBoxClick(Sender: TObject);
     procedure UseLegendClick(Sender: TObject);
     procedure UseForceClick(Sender: TObject);

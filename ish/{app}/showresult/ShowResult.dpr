@@ -38,7 +38,6 @@ procedure InitializeDLL(Plugin:HModule;Handle:THandle);stdcall;
 begin
      OldHandle:=Application.Handle;
      Application.Handle:=Handle;
-
      Menu:=RegisterMenu(Plugin,PChar(PluginName),72,6,PChar('ShowForm'));
      Button:=RegisterToolButton(Plugin,PChar(PluginName),72,PChar('Результат'),
      PChar('ShowForm'));

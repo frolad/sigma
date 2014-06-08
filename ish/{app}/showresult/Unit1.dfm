@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 1125
-  Top = 9
+  Left = 1163
+  Top = 126
   Width = 355
   Height = 789
   Caption = #1055#1072#1088#1072#1084#1077#1090#1088#1099
@@ -393,7 +393,7 @@ object Form1: TForm1
       Top = 401
       Width = 329
       Height = 602
-      ActivePage = TabSheet3
+      ActivePage = TabSheet1
       Align = alTop
       Anchors = [akLeft, akTop, akRight, akBottom]
       Font.Charset = DEFAULT_CHARSET
@@ -507,6 +507,16 @@ object Form1: TForm1
             Height = 13
             Caption = 'Y:'
           end
+          object Label30: TLabel
+            Left = 141
+            Top = 24
+            Width = 54
+            Height = 13
+            Hint = #1053#1072#1087#1088#1103#1078#1077#1085#1080#1077' '#1087#1086' X'
+            Caption = #1053#1086#1084#1077#1088' '#1050#1069':'
+            ParentShowHint = False
+            ShowHint = True
+          end
           object InfoMoveX: TEdit
             Left = 120
             Top = 76
@@ -538,6 +548,14 @@ object Form1: TForm1
             Height = 21
             TabOrder = 3
             OnChange = EditMoveYChange
+          end
+          object Edit8: TEdit
+            Left = 200
+            Top = 21
+            Width = 102
+            Height = 21
+            ReadOnly = True
+            TabOrder = 4
           end
         end
       end
@@ -905,7 +923,7 @@ object Form1: TForm1
             Width = 81
             Height = 21
             TabOrder = 0
-            Text = '20'
+            Text = '100'
             OnChange = EditForceChange
           end
           object ForceTrackBar: TTrackBar
