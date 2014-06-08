@@ -242,6 +242,9 @@ Begin
      ORT16.text:=floattostr(MainParamsClass.MainParamsMaterial.ORT16);
      ORT17.text:=floattostr(MainParamsClass.MainParamsMaterial.ORT17);
      ORT21.text:=floattostr(MainParamsClass.MainParamsMaterial.ORT21);
+     ORT4.text:=floattostr(MainParamsClass.MainParamsMaterial.ORT4);
+     ORT11.text:=floattostr(MainParamsClass.MainParamsMaterial.ORT11);
+     ORT18.text:=floattostr(MainParamsClass.MainParamsMaterial.ORT18);
      PRM1.text:=floattostr(MainParamsClass.MainParamsMaterial.PRM1);
      PRM2.text:=floattostr(MainParamsClass.MainParamsMaterial.PRM2);
      PRM3.text:=floattostr(MainParamsClass.MainParamsMaterial.PRM3);
@@ -291,15 +294,15 @@ Begin
      ORT16.text:=floattostr(MPM.ORT16);
      ORT17.text:=floattostr(MPM.ORT17);
      ORT21.text:=floattostr(MPM.ORT21);
+     ORT4.text:=floattostr(MPM.ORT4);
+     ORT11.text:=floattostr(MPM.ORT11);
+     ORT18.text:=floattostr(MPM.ORT18);
      PRM1.text:=floattostr(MPM.PRM1);
      PRM2.text:=floattostr(MPM.PRM2);
      PRM3.text:=floattostr(MPM.PRM3);
      //PRM4.text:=floattostr(MPM.PRM4);
      //PRM5.text:=floattostr(MPM.PRM5);
   end;
-     ORT4.Text:='0.0';
-     ORT11.text:='0.0';
-     ORT18.Text:='0.0';
 //--------------------
 //   Plotnikov
      ms:=get_main_sets;
@@ -1023,6 +1026,9 @@ Begin
      If (Error=0) And (Not CheckReal(ORT17.text, MPM.ORT17)) Then Error:=20;
      If (Error=0) And (Not CheckReal(ORT21.text, MPM.ORT21)) Then Error:=21;
 
+     If (Error=0) And (Not CheckReal(ORT4.text, MPM.ORT4)) Then Error:=20;
+     If (Error=0) And (Not CheckReal(ORT11.text, MPM.ORT11)) Then Error:=20;
+     If (Error=0) And (Not CheckReal(ORT18.text, MPM.ORT18)) Then Error:=20;
 //--- Выбор расчёт с оптимизацией сетки и без неё
 //      Musolov
 {     if chb_grid_opt.Checked then begin
@@ -1284,7 +1290,7 @@ procedure TMainParamsForm.Button1Click(Sender: TObject);
    Word.Selection.TypeParagraph;
    Word.Selection.TypeText('Допускаемое напряжение ORT(3): '+ORT3.Text);
    Word.Selection.TypeParagraph;
-   Word.Selection.TypeText('Свободный параметр ORT(4): '+ORT4.Text);
+   Word.Selection.TypeText('Допускаемое отриц. напр. ORT(4): '+ORT4.Text);
    Word.Selection.TypeParagraph;
    Word.Selection.TypeText('Толщина ORT(7): '+ORT7.Text);
    Word.Selection.TypeParagraph;
@@ -1298,7 +1304,7 @@ procedure TMainParamsForm.Button1Click(Sender: TObject);
    Word.Selection.TypeParagraph;
    Word.Selection.TypeText('Допускаемое напряжение ORT(10): '+ORT10.Text);
    Word.Selection.TypeParagraph;
-   Word.Selection.TypeText('Свободный параметр ORT(11): '+ORT11.Text);
+   Word.Selection.TypeText('Допускаемое отриц. напр. ORT(11): '+ORT11.Text);
    Word.Selection.TypeParagraph;
    Word.Selection.TypeText('Толщина ORT(14): '+ORT14.Text);
    Word.Selection.TypeParagraph;
@@ -1312,7 +1318,7 @@ procedure TMainParamsForm.Button1Click(Sender: TObject);
    Word.Selection.TypeParagraph;
    Word.Selection.TypeText('Допускаемое напряжение ORT(17): '+ORT17.Text);
    Word.Selection.TypeParagraph;
-   Word.Selection.TypeText('Свободный параметр ORT(18): '+ORT18.Text);
+   Word.Selection.TypeText('Допускаемое отриц. напр. ORT(18): '+ORT18.Text);
    Word.Selection.TypeParagraph;
    Word.Selection.TypeText('Толщина ORT(21): '+ORT21.Text);
    Word.Selection.TypeParagraph;

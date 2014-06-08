@@ -145,7 +145,6 @@ type
 
   private
     { Private declarations }
-    ForceTrackBar.Position:= ForceTrackBar.min;
   public
     { Public declarations }
 

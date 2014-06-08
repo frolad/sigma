@@ -17,7 +17,7 @@ object Form1: TForm1
     Left = 0
     Top = 0
     Width = 350
-    Height = 733
+    Height = 734
     VertScrollBar.Range = 790
     Align = alRight
     AutoScroll = False
@@ -80,8 +80,8 @@ object Form1: TForm1
         end
       end
       object UseAxes: TCheckBox
-        Left = 6
-        Top = 126
+        Left = 165
+        Top = 16
         Width = 139
         Height = 17
         Hint = #1055#1086#1082#1072#1079#1099#1074#1072#1090#1100' '#1086#1089#1080' '#1082#1086#1086#1088#1076#1080#1085#1072#1090
@@ -1167,7 +1167,7 @@ object Form1: TForm1
     end
     object CheckBox2: TCheckBox
       Left = 6
-      Top = 271
+      Top = 223
       Width = 177
       Height = 17
       Hint = #1054#1090#1086#1073#1088#1072#1078#1077#1085#1080#1077' '#1084#1072#1090#1077#1088#1080#1072#1083#1086#1074' '#1094#1074#1077#1090#1086#1084
@@ -1178,7 +1178,7 @@ object Form1: TForm1
     object ZoneCheckBox: TCheckBox
       Left = 6
       Top = 113
-      Width = 97
+      Width = 59
       Height = 17
       Hint = #1055#1086#1082#1072#1079#1072#1090#1100' '#1080#1089#1093#1086#1076#1085#1086#1077' '#1088#1072#1079#1073#1080#1077#1085#1080#1077
       Caption = #1047#1086#1085#1099
