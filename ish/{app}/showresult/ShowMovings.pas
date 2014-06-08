@@ -3418,8 +3418,8 @@ BEGIN
       IF (flag>0) THEN
       // если КЭ испытывает напряжения больше допустимого напряжения, то показать сетку
           Begin
-            IF (flag=1) THEN Brush.Style:=bsVertical;
-            IF (flag=2) THEN Brush.Style:=bsHorizontal;
+            IF (flag=1) THEN Brush.Style:=bsHorizontal;
+            IF (flag=2) THEN Brush.Style:=bsVertical;
             IF (flag=3) THEN Brush.Style:=bsCross;
             if LinesShow then
             begin
