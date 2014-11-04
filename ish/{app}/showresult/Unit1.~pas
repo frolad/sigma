@@ -363,6 +363,7 @@ procedure TForm1.StressType2Click(Sender: TObject);
 begin
   StressType.ItemIndex := StressType2.ItemIndex;
   //ShowMovingsForm.StressType.ItemIndex := StressType1.ItemIndex;
+  TForm1.StressTypeClick(TObject);
   ShowMovingsForm.LoadMaxMinStressInMaterials;
 end;
 
@@ -370,6 +371,7 @@ procedure TForm1.StressTypeClick(Sender: TObject);
 begin
 ShowMovingsForm.ChengeLegendLevel;
 ShowMovingsForm.LoadMaxMinStress;
+ShowMovingsForm.LoadMaxMinStressInMaterials;
 ShowMovingsForm.MainRePaint;
 ShowMovingsForm.LegendRePaint;
 end;

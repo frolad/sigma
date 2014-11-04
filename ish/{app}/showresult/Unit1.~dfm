@@ -1211,7 +1211,7 @@ object Form1: TForm1
           ParentShowHint = False
           ShowHint = True
           TabOrder = 0
-          OnClick = StressType1Click
+          OnClick = StressType2Click
         end
         object GroupBox11: TGroupBox
           Left = 0
@@ -1239,12 +1239,12 @@ object Form1: TForm1
             Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goDrawFocusSelected, goTabs]
             TabOrder = 0
             ColWidths = (
+              50
+              40
               40
               60
-              60
-              60
-              60
-              36)
+              40
+              60)
             RowHeights = (
               18
               18

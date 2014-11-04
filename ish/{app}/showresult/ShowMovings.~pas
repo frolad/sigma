@@ -851,6 +851,7 @@ BEGIN
 
   // Прокофьев 2012
   LoadMaxMinStress;
+  LoadMaxMinStressInMaterials;
   // end Прокофьев
 
   Error    := 0;
@@ -3558,17 +3559,20 @@ begin
 
   for curZoneNum := 1 to zoneCount do
   begin
-    // максимальное положительное напряжение в текущей зоне
-    maxPosStressZ :=0;
-    // номер КЭ
-    maxPosStressZNum := 0;
-    // максимальное отрицительное напряжение в текущей зоне
-    maxNegStressZ := 0;
-    // номер КЭ
-    maxNegStressZNum := 0;
-
     i := 1;
     curElemNum :=  ElemZone[curZoneNum, i];
+    curElement := Elements_Result.GetElement(curElemNum) ;
+    stress := curElement.Strain[Form1.StressType.ItemIndex + 1] ;
+    // максимальное положительное напряжение в текущей зоне
+    maxPosStressZ := stress;
+    // номер КЭ
+    maxPosStressZNum := curElemNum;
+    // максимальное отрицительное напряжение в текущей зоне
+    maxNegStressZ := stress;
+    // номер КЭ
+    maxNegStressZNum := curElemNum;
+
+
     while curElemNum <> 0 do
     begin
 
@@ -3611,20 +3615,20 @@ begin
   // определить максимумы для всей пластины
   // начальные значения
   // максимальное положительное напряжение во всей пластине
-  maxPosStressP := -0.000001;
+  maxPosStressP := stress;
   // номер КЭ
-  maxPosStressPNum := 0;
+  maxPosStressPNum := curElemNum;
   // максимальное отрицительное напряжение во всей пластине
-  maxNegStressP := 0;
+  maxNegStressP := stress;
   // номер КЭ
-  maxNegStressPNum :=0;
-  maxPosStressAll := -0.000001;
+  maxNegStressPNum :=curElemNum;
+  maxPosStressAll := stress;
   // номер КЭ
-  maxPosStressAllNum := 0;
-  // максимальное отрицительное напряжение во всей пластине
-  maxNegStressAll := 0;
+  maxPosStressAllNum := curElemNum;
+  // максимальное отрицательное напряжение во всей пластине
+  maxNegStressAll := stress;
   // номер КЭ
-  maxNegStressAllNum :=0;
+  maxNegStressAllNum :=curElemNum;
 
   Elements_Result.SetFirstElement;
   countNodes := Elements_Result.GetNumElements;
@@ -3687,7 +3691,7 @@ end;
 
 procedure TShowMovingsForm.LoadMaxMinStressInMaterials;
 var
-  i, j, zoneCout, nodeNum, k, countNodes : integer;
+  i, j, zoneCout, nodeNum, k, countNodes, curRow, material : integer;
   curElement : TOneElement;
   stress : double;
   // максимальное положительное напряжение во всей пластине
@@ -3699,6 +3703,15 @@ var
   // номер КЭ
   maxNegStressPNum : integer;
   // максимальное положительное напряжение в текущей зоне
+  // максимальное положительное напряжение во всей пластине
+  maxPosStressAll : double;
+  // номер КЭ
+  maxPosStressAllNum : integer;
+  // максимальное отрицительное напряжение во всей пластине
+  maxNegStressAll : double;
+  // номер КЭ
+  maxNegStressAllNum : integer;
+  // максимальное положительное напряжение в текущей зоне
   maxPosStressZ : double;
   // номер КЭ
   maxPosStressZNum : integer;
@@ -3708,83 +3721,96 @@ var
   maxNegStressZNum : integer;
   curElemNum, curZoneNum : integer;
 begin
-  Form1.ZoneStress.ColCount := 5;
+  Form1.ZoneStress2.ColCount := 6;
   // задать заголовок таблицы
-  Form1.ZoneStress.Cells[0, 0] := 'Зона';
-  Form1.ZoneStress.Cells[1, 0] := '№ КЭ';
-  Form1.ZoneStress.Cells[2, 0] := 'Полож. Max';
-  Form1.ZoneStress.Cells[3, 0] := '№ КЭ';
-  Form1.ZoneStress.Cells[4, 0] := 'Отриц. Max';
+  Form1.ZoneStress2.Cells[0, 0] := 'Св-тво';
+  Form1.ZoneStress2.Cells[1, 0] := 'Зона';
+  Form1.ZoneStress2.Cells[2, 0] := '№ КЭ';
+  Form1.ZoneStress2.Cells[3, 0] := 'Верхнее';
+  Form1.ZoneStress2.Cells[4, 0] := '№ КЭ';
+  Form1.ZoneStress2.Cells[5, 0] := 'Нижнее';
 
   // Определить количество зон
   zoneCount := ZoneContour.GetNumberOfZones();
-
+  curRow:=1;
+for material := 1 to 3 do
+begin
   for curZoneNum := 1 to zoneCount do
   begin
-    // максимальное положительное напряжение в текущей зоне
-    maxPosStressZ :=0;
-    // номер КЭ
-    maxPosStressZNum := 0;
-    // максимальное отрицительное напряжение в текущей зоне
-    maxNegStressZ := 0;
-    // номер КЭ
-    maxNegStressZNum := 0;
-
     i := 1;
     curElemNum :=  ElemZone[curZoneNum, i];
-    while curElemNum <> 0 do
-    begin
-      // получить элемен по его номеру
-      curElement := Elements_Result.GetElement(curElemNum) ;
-
-      // определить напряжения
-      stress := curElement.Strain[Form1.StressType.ItemIndex + 1] ;
-      if ( stress > maxPosStressZ ) then
+    curElement := Elements_Result.GetElement(curElemNum) ;
+    if (curElement.Material = material) then
       begin
+        stress := curElement.Strain[Form1.StressType.ItemIndex + 1] ;
+    // максимальное положительное напряжение в текущей зоне
         maxPosStressZ := stress;
-        maxPosStressZNum := curElement.Number;
-      end;
-      if (stress < maxNegStressZ ) then
-      begin
+    // номер КЭ
+        maxPosStressZNum := curElemNum;
+    // максимальное отрицительное напряжение в текущей зоне
         maxNegStressZ := stress;
-        maxNegStressZNum := curElement.Number;
-      end;
+    // номер КЭ
+        maxNegStressZNum := curElemNum;
+        while curElemNum <> 0 do
+        begin
+          // получить элемен по его номеру
+          curElement := Elements_Result.GetElement(curElemNum) ;
+          // определить напряжения
+           stress := curElement.Strain[Form1.StressType.ItemIndex + 1] ;
+          if ( stress > maxPosStressZ ) then
+          begin
+            maxPosStressZ := stress;
+            maxPosStressZNum := curElement.Number;
+          end;
+          if (stress < maxNegStressZ ) then
+          begin
+             maxNegStressZ := stress;
+             maxNegStressZNum := curElement.Number;
+          end;
 
-      inc(i);
-      curElemNum := ElemZone[curZoneNum, i];
-    end;
-
-    // записать данные для зоны
+        inc(i);
+        curElemNum := ElemZone[curZoneNum, i];
+        end;
+     // записать данные для зоны
     // номер зоны
-    Form1.ZoneStress.Cells[0, curZoneNum] := IntToStr(curZoneNum);
-    // номер кэ с макс положит напряж
-    Form1.ZoneStress.Cells[1, curZoneNum] := IntToStr(maxPosStressZNum);
+      Form1.ZoneStress2.Cells[0, curRow] := IntToStr(material);
+      Form1.ZoneStress2.Cells[1, curRow] := IntToStr(curZoneNum);
+     // номер кэ с макс положит напряж
+      Form1.ZoneStress2.Cells[2, curRow] := IntToStr(maxPosStressZNum);
     // значение положит
-    Form1.ZoneStress.Cells[2, curZoneNum] := MyFloatToStr(maxPosStressZ);
+      Form1.ZoneStress2.Cells[3, curRow] := MyFloatToStr(maxPosStressZ);
     // номер кэ с макс отриц напряж
-    Form1.ZoneStress.Cells[3, curZoneNum] := IntToStr(maxNegStressZNum);
+      Form1.ZoneStress2.Cells[4, curRow] := IntToStr(maxNegStressZNum);
     // значение отриц
-    Form1.ZoneStress.Cells[4, curZoneNum] := MyFloatToStr(maxNegStressZ);
-
+      Form1.ZoneStress2.Cells[5, curRow] := MyFloatToStr(maxNegStressZ);
+	  curRow++;
+    end;
   end;
-
-
   // определить максимумы для всей пластины
   // начальные значения
   // максимальное положительное напряжение во всей пластине
-  maxPosStressP := -0.000001;
+  maxPosStressP := stress;
   // номер КЭ
-  maxPosStressPNum := 0;
+  maxPosStressPNum := curElemNum;
   // максимальное отрицительное напряжение во всей пластине
-  maxNegStressP := 0;
+  maxNegStressP := stress;
   // номер КЭ
-  maxNegStressPNum :=0;
+  maxNegStressPNum :=curElemNum;
+  maxPosStressAll := stress;
+  // номер КЭ
+  maxPosStressAllNum := curElemNum;
+  // максимальное отрицательное напряжение во всей пластине
+  maxNegStressAll := stress;
+  // номер КЭ
+  maxNegStressAllNum :=curElemNum;
 
   Elements_Result.SetFirstElement;
   countNodes := Elements_Result.GetNumElements;
   for j := 1 to countNodes do
   begin
     curElement:=Elements_Result.GetCurrentElement;
+    if (curElement.Material = material) then
+    begin
     // определить макс и мин для всей пластины
     stress := curElement.Strain[Form1.StressType.ItemIndex + 1] ;
     if ( stress > maxPosStressP ) then
@@ -3797,22 +3823,49 @@ begin
       maxNegStressP := stress;
       maxNegStressPNum := curElement.Number;
     end;
-
+     for i := 1 to 7 do
+     begin
+         stress := curElement.Strain[i];
+         if ( stress > maxPosStressAll ) then
+           begin
+              maxPosStressAll := stress;
+              maxPosStressAllNum := curElement.Number;
+            end;
+          if (stress < maxNegStressAll ) then
+            begin
+               maxNegStressAll := stress;
+               maxNegStressAllNum := curElement.Number;
+           end;
+     end;
     Elements_Result.SetNextElement;
+    end;
   end;
 
-  Form1.ZoneStress.Cells[0, zoneCount + 1] := 'Пластина';
+  Form1.ZoneStress2.Cells[0, curRow] := 'Макс';
   // номер кэ с макс положит напряж
-  Form1.ZoneStress.Cells[1, zoneCount + 1] := IntToStr(maxPosStressPNum);
+  Form1.ZoneStress2.Cells[2, curRow] := IntToStr(maxPosStressPNum);
   // значение положит
-  Form1.ZoneStress.Cells[2, zoneCount + 1] := MyFloatToStr(maxPosStressP);
+  Form1.ZoneStress2.Cells[3, curRow] := MyFloatToStr(maxPosStressP);
   // номер кэ с макс отриц напряж
-  Form1.ZoneStress.Cells[3, zoneCount + 1] := IntToStr(maxNegStressPNum);
+  Form1.ZoneStress2.Cells[4, curRow] := IntToStr(maxNegStressPNum);
   // значение отриц
-  Form1.ZoneStress.Cells[4, zoneCount + 1] := MyFloatToStr(maxNegStressP);
+  Form1.ZoneStress2.Cells[5, curRow] := MyFloatToStr(maxNegStressP);
+  curRow++;
+  Form1.ZoneStress2.RowCount := curRow;
 
-  Form1.ZoneStress.RowCount := zoneCount + 2;
-
+  Form1.ZoneStress2.Cells[0, curRow] := 'MAX-MAX';
+  // номер кэ с макс положит напряж
+  Form1.ZoneStress2.Cells[2, curRow] := IntToStr(maxPosStressAllNum);
+  // значение положит
+  Form1.ZoneStress2.Cells[3, curRow] := MyFloatToStr(maxPosStressAll);
+  // номер кэ с макс отриц напряж
+  Form1.ZoneStress2.Cells[4, curRow] := IntToStr(maxNegStressAllNum);
+  // значение отриц
+  Form1.ZoneStress2.Cells[5, curRow] := MyFloatToStr(maxNegStressAll);
+  curRow++;
+  Form1.ZoneStress2.RowCount := curRow;
+  
+end;
 end;
 
 procedure TShowMovingsForm.LoadElemZone(path:string);

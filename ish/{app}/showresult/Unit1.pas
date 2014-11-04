@@ -370,6 +370,7 @@ procedure TForm1.StressTypeClick(Sender: TObject);
 begin
 ShowMovingsForm.ChengeLegendLevel;
 ShowMovingsForm.LoadMaxMinStress;
+ShowMovingsForm.LoadMaxMinStressInMaterials;
 ShowMovingsForm.MainRePaint;
 ShowMovingsForm.LegendRePaint;
 end;
