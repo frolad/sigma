@@ -393,7 +393,7 @@ object Form1: TForm1
       Top = 401
       Width = 329
       Height = 602
-      ActivePage = TabSheet1
+      ActivePage = TabSheet6
       Align = alTop
       Anchors = [akLeft, akTop, akRight, akBottom]
       Font.Charset = DEFAULT_CHARSET
@@ -1111,7 +1111,7 @@ object Form1: TForm1
         end
       end
       object TabSheet5: TTabSheet
-        Caption = 'Max '#1053#1072#1087#1088#1103#1078#1077#1085#1080#1103
+        Caption = #1044#1080#1072#1087#1072#1079#1086#1085#1099' '#1085#1072#1087#1088#1103#1078#1077#1085#1080#1081' '#1074' '#1079#1086#1085#1072#1093
         ImageIndex = 4
         object StressType1: TRadioGroup
           Left = 0
@@ -1147,7 +1147,7 @@ object Form1: TForm1
           Width = 321
           Height = 246
           Align = alTop
-          Caption = #1055#1088#1080#1083#1086#1078#1077#1085#1085#1099#1077' '#1089#1080#1083#1099' '
+          Caption = #1042#1077#1088#1093#1085#1077#1077' '#1080' '#1085#1080#1078#1085#1077#1077' '#1079#1085#1072#1095#1077#1085#1080#1077' '#1085#1072#1087#1088#1103#1078#1077#1085#1080#1103' '#1074' '#1079#1086#1085#1072#1093' '
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -1156,6 +1156,78 @@ object Form1: TForm1
           ParentFont = False
           TabOrder = 1
           object ZoneStress: TStringGrid
+            Left = 2
+            Top = 15
+            Width = 317
+            Height = 229
+            Align = alClient
+            ColCount = 6
+            DefaultColWidth = 36
+            DefaultRowHeight = 18
+            Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goDrawFocusSelected, goTabs]
+            TabOrder = 0
+            ColWidths = (
+              40
+              40
+              30
+              60
+              30
+              60)
+            RowHeights = (
+              18
+              18
+              18
+              18
+              18)
+          end
+        end
+      end
+      object TabSheet6: TTabSheet
+        Caption = #1044#1080#1072#1087#1072#1079#1086#1085#1099' '#1085#1072#1087#1088#1103#1078#1077#1085#1080#1081' '#1074' '#1089#1074#1086#1081#1089#1090#1074#1072#1093
+        ImageIndex = 5
+        object StressType2: TRadioGroup
+          Left = 0
+          Top = 0
+          Width = 321
+          Height = 80
+          Align = alTop
+          Caption = #1058#1080#1087' '#1085#1072#1087#1088#1103#1078#1077#1085#1080#1081' '
+          Columns = 2
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ItemIndex = 0
+          Items.Strings = (
+            #1053#1072#1087#1088#1103#1078#1077#1085#1080#1077' '#1087#1086' X'
+            #1053#1072#1087#1088#1103#1078#1077#1085#1080#1077' '#1087#1086' Y'
+            #1050#1072#1089#1072#1090#1077#1083#1100#1085#1086#1077
+            '1-'#1086#1077' '#1075#1083#1072#1074#1085#1086#1077
+            '2-'#1086#1077' '#1075#1083#1072#1074#1085#1086#1077
+            #1069#1082#1074#1080#1074#1072#1083#1077#1085#1090#1085#1086#1077
+            #1059#1075#1086#1083)
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+          OnClick = StressType1Click
+        end
+        object GroupBox11: TGroupBox
+          Left = 0
+          Top = 80
+          Width = 321
+          Height = 246
+          Align = alTop
+          Caption = #1042#1077#1088#1093#1085#1077#1077' '#1080' '#1085#1080#1078#1085#1077#1077' '#1079#1085#1072#1095#1077#1085#1080#1077' '#1085#1072#1087#1088#1103#1078#1077#1085#1080#1103' '#1074' '#1089#1074#1086#1081#1089#1090#1074#1072#1093
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 1
+          object ZoneStress2: TStringGrid
             Left = 2
             Top = 15
             Width = 317

@@ -126,6 +126,8 @@ Type
     Label24: TLabel;
     RadioButton1: TRadioButton;
     RadioButton2: TRadioButton;
+    Label25: TLabel;
+    Label40: TLabel;
                Procedure CancelBtnClick(Sender: TObject);
                Procedure OKBtnClick(Sender: TObject);
                procedure FormClose(Sender: TObject; var Action: TCloseAction);

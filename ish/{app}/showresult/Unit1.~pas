@@ -114,6 +114,12 @@ type
     StressType1: TRadioGroup;
     GroupBox10: TGroupBox;
     ZoneStress: TStringGrid;
+    Edit8: TEdit;
+    Label30: TLabel;
+    TabSheet6: TTabSheet;
+    StressType2: TRadioGroup;
+    GroupBox11: TGroupBox;
+    ZoneStress2: TStringGrid;
     procedure ZoneCheckBoxClick(Sender: TObject);
     procedure UseLegendClick(Sender: TObject);
     procedure UseForceClick(Sender: TObject);
@@ -137,6 +143,7 @@ type
     procedure ForceTrackBarChange(Sender: TObject);
     procedure StressType1Click(Sender: TObject);
     procedure StressTypeClick(Sender: TObject);
+    procedure StressType2Click(Sender: TObject);
     procedure EditForceChange(Sender: TObject);
     procedure EditXChange(Sender: TObject);
     procedure EditYChange(Sender: TObject);
@@ -350,6 +357,13 @@ begin
   StressType.ItemIndex := StressType1.ItemIndex;
   //ShowMovingsForm.StressType.ItemIndex := StressType1.ItemIndex;
   ShowMovingsForm.LoadMaxMinStress;
+end;
+
+procedure TForm1.StressType2Click(Sender: TObject);
+begin
+  StressType.ItemIndex := StressType2.ItemIndex;
+  //ShowMovingsForm.StressType.ItemIndex := StressType1.ItemIndex;
+  ShowMovingsForm.LoadMaxMinStressInMaterials;
 end;
 
 procedure TForm1.StressTypeClick(Sender: TObject);
