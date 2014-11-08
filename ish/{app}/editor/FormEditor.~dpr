@@ -25,8 +25,9 @@ uses
 {$E plg}
 
 const
-     Category='Редактирование';
-     EditFormName='Редактирование формы';
+     Category='Импорт';
+     Category1='Импорт';
+     EditFormName='Геометрическая модель';
      ParamFormName='Основные параметры';
 {$R *.RES}
 
@@ -38,11 +39,11 @@ procedure InitializeDLL(Plugin:HModule;Handle:THandle);stdcall;
 begin
      OldHandle:=Application.Handle;
      Application.Handle:=Handle;
-     Menu:=RegisterMenu(Plugin,PChar(EditFormName),53,1,PChar('ShowForm'));
+     Menu:=RegisterMenu(Plugin,PChar(EditFormName),53,2,PChar('ShowForm'));
      Button:=RegisterToolButton(Plugin,PChar(EditFormName),53,PChar(Category),PChar('ShowForm'));
 
      Menup:=RegisterMenu(Plugin,PChar(ParamFormName),42,1,PChar('ShowParamsForm'));
-     Buttonp:=RegisterToolButton(Plugin,PChar(ParamFormName),42,PChar(Category),PChar('ShowParamsForm'));
+     Buttonp:=RegisterToolButton(Plugin,PChar(ParamFormName),42,PChar(Category1),PChar('ShowParamsForm'));
      RegisterPlugin(Plugin,Plugin_Edit_Form);
      Screen.Cursors[HandAct]:=LoadCursor(HInstance, 'HANDA');
      Screen.Cursors[HandPas]:=LoadCursor(HInstance, 'HANDP');
@@ -50,6 +51,7 @@ begin
      Screen.Cursors[Zoomout]:=LoadCursor(HInstance, 'ZOOMOUT');
      Screen.Cursors[ZoomArea]:=LoadCursor(HInstance, 'ZOOMAREA');
 end;
+
 procedure CheckState;stdcall;
 var
      ex:boolean;
@@ -58,6 +60,8 @@ begin
      else ex:=false;
      SetMenuStatus(menup,ex);
      SetToolButtonStatus(Buttonp,ex);
+	 SetMenuStatus(menu,ex);
+     SetToolButtonStatus(Button,ex);
 end;
 procedure FinalizeDLL;stdcall;
 begin

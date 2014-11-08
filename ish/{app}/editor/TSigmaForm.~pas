@@ -27,6 +27,7 @@ type
           L             : MyReal;
           INRG          : integer;
           INBP          : integer;
+          GRIDOPT          : integer;
      End;
      TMainParamsMaterial=Record   // Добавление материалов (kotov)
           PRM1,PRM2,PRM3{,PRM4,PRM5}   : MyReal;
@@ -35,6 +36,7 @@ type
           ORT11,ORT14      : MyReal;
           ORT15,ORT16,ORT17: MyReal;
           ORT18,ORT21      : MyReal;
+
      End;
 //--------------------------------------
      TMain_Settings = Record

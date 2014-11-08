@@ -143,6 +143,7 @@ Type
     procedure RadioButton4Click(Sender: TObject);
     procedure RadioButton3Click(Sender: TObject);
     procedure genkngClick(Sender: TObject);
+
           private
                { Private declarations }
           public
@@ -984,6 +985,7 @@ Var
      MPM              : TMainParamsMaterial;
      MS               : TMain_Settings;
      FFileName:string;
+     Registry :TRegistry;
 PlugExec : function(): boolean;
       handle : Thandle;
       ex                 : textfile;
@@ -1179,7 +1181,14 @@ a2:
                               Save(FFileName);
                               Free;
                          end;
-{                         with TMain_Settings_Class.Create do
+                         Registry        :=TRegistry.Create;
+                         Registry.RootKey:=HKEY_CURRENT_USER;
+                                    if Registry.OpenKey(StringReg, true) then
+                                               begin
+                                        Registry.WriteInteger('GridOpt',MS.grid_opt_calc);
+                                           end;
+                          Registry.Free;
+                                             { with TMain_Settings_Class.Create do
                          begin
                                 ShowMessage ('+');
                                 Load_Sets(FFileName);
@@ -1188,7 +1197,7 @@ a2:
                                 Save_Sets(FFileName);
                                 ShowMessage('+++');
                                 Free;
-                         end;     }
+                         end;   }  
                     end;
              //  end;
                Close;
@@ -1444,5 +1453,12 @@ begin
   CheckBox2.Checked:=false;
   genrzn.Checked:=false;
 end;
+
+procedure TMainParamsForm.SetGridOpt(Integer: GridOpt);
+var
+  Registry:TRegistry;
+begin
+     
+End;
 
 End.

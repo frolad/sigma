@@ -36,11 +36,6 @@ type
     EditScale: TEdit;
     PageControl1: TPageControl;
     TabSheet1: TTabSheet;
-    GroupBox4: TGroupBox;
-    Mover: TTrackBar;
-    Panel5: TPanel;
-    Label8: TLabel;
-    EditMover: TEdit;
     GroupBox9: TGroupBox;
     Label17: TLabel;
     Label16: TLabel;
@@ -120,6 +115,13 @@ type
     StressType2: TRadioGroup;
     GroupBox11: TGroupBox;
     ZoneStress2: TStringGrid;
+    Label31: TLabel;
+    GroupBox4: TGroupBox;
+    Mover: TTrackBar;
+    Panel5: TPanel;
+    Label8: TLabel;
+    EditMover: TEdit;
+    Label32: TLabel;
     procedure ZoneCheckBoxClick(Sender: TObject);
     procedure UseLegendClick(Sender: TObject);
     procedure UseForceClick(Sender: TObject);

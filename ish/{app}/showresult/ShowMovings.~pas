@@ -256,7 +256,8 @@ TYPE
     procedure Button1Click(Sender: TObject);
     procedure EditForceChange(Sender: TObject);
     procedure ColorZeroPlussClick(Sender: TObject);
-
+    PROCEDURE CheckOptimization();
+    function GetGridOpt():Integer;
 
 
   PUBLIC
@@ -307,6 +308,7 @@ TYPE
     // Прокофьев
     PROCEDURE LoadMaxMinStress();
     PROCEDURE LoadMaxMinStressInMaterials();
+
     procedure LoadElemZone(path: string);
     // end Прокофьев
 
@@ -852,6 +854,7 @@ BEGIN
   // Прокофьев 2012
   LoadMaxMinStress;
   LoadMaxMinStressInMaterials;
+  CheckOptimization();
   // end Прокофьев
 
   Error    := 0;
@@ -3783,10 +3786,10 @@ begin
       Form1.ZoneStress2.Cells[4, curRow] := IntToStr(maxNegStressZNum);
     // значение отриц
       Form1.ZoneStress2.Cells[5, curRow] := MyFloatToStr(maxNegStressZ);
-	  curRow++;
+	  inc(curRow);
     end;
   end;
-  // определить максимумы для всей пластины
+  /// определить максимумы для всей пластины
   // начальные значения
   // максимальное положительное напряжение во всей пластине
   maxPosStressP := stress;
@@ -3809,9 +3812,9 @@ begin
   for j := 1 to countNodes do
   begin
     curElement:=Elements_Result.GetCurrentElement;
-    if (curElement.Material = material) then
-    begin
     // определить макс и мин для всей пластины
+	if (curElement.Material = material) then
+	begin
     stress := curElement.Strain[Form1.StressType.ItemIndex + 1] ;
     if ( stress > maxPosStressP ) then
     begin
@@ -3837,10 +3840,12 @@ begin
                maxNegStressAllNum := curElement.Number;
            end;
      end;
+	end;
     Elements_Result.SetNextElement;
-    end;
   end;
 
+
+  
   Form1.ZoneStress2.Cells[0, curRow] := 'Макс';
   // номер кэ с макс положит напряж
   Form1.ZoneStress2.Cells[2, curRow] := IntToStr(maxPosStressPNum);
@@ -3850,7 +3855,7 @@ begin
   Form1.ZoneStress2.Cells[4, curRow] := IntToStr(maxNegStressPNum);
   // значение отриц
   Form1.ZoneStress2.Cells[5, curRow] := MyFloatToStr(maxNegStressP);
-  curRow++;
+  inc(curRow);
   Form1.ZoneStress2.RowCount := curRow;
 
   Form1.ZoneStress2.Cells[0, curRow] := 'MAX-MAX';
@@ -3862,7 +3867,7 @@ begin
   Form1.ZoneStress2.Cells[4, curRow] := IntToStr(maxNegStressAllNum);
   // значение отриц
   Form1.ZoneStress2.Cells[5, curRow] := MyFloatToStr(maxNegStressAll);
-  curRow++;
+  inc(curRow);
   Form1.ZoneStress2.RowCount := curRow;
   
 end;
@@ -3911,9 +3916,6 @@ begin
 end;
 
 
-// end Прокофьев
-
-
 
 procedure TShowMovingsForm.EditForceChange(Sender: TObject);
 VAR
@@ -3941,4 +3943,54 @@ BEGIN
   END;
 END;
 
+procedure TShowMovingsForm.CheckOptimization;
+var
+  GridOpt:integer;
+begin
+  GridOpt:=GetGridOpt();
+
+  if (GridOpt=-4) or (GridOpt=-3) or
+  (GridOpt=1) or (GridOpt=12) or
+  (GridOpt=22) or (GridOpt=3) or
+  (GridOpt=5) or (GridOpt=14) or
+  (GridOpt=24) or (GridOpt=7) or
+  (GridOpt=41) or (GridOpt=44) or
+  (GridOpt=51) or (GridOpt=54) then
+  begin
+  Form1.Label31.Caption := 'Сетка оптимизирована (стат.)';
+  Form1.Label32.Caption := 'Сетка оптимизирована (стат.)';
+  end
+  else if (GridOpt=31) or (GridOpt=32) or
+  (GridOpt=33) or (GridOpt=34) or
+  (GridOpt=35) or (GridOpt=36) or
+  (GridOpt=37) or (GridOpt=38) or
+  (GridOpt=39) or (GridOpt=30) or
+  (GridOpt=42) or (GridOpt=45) or
+  (GridOpt=52) or (GridOpt=55) then
+    begin
+    Form1.Label31.Caption := 'Сетка оптимизирована (дин.)';
+    Form1.Label32.Caption := 'Сетка оптимизирована (дин.)';
+    end
+    else
+    begin
+    Form1.Label31.Caption := 'Сетка не оптимизирована';
+    Form1.Label32.Caption := 'Сетка не оптимизирована';
+    end;
+end;
+
+function TShowMovingsForm.GetGridOpt:integer;
+var
+  Registry:TRegistry;
+begin
+     Registry        :=TRegistry.Create;
+     Registry.RootKey:=HKEY_CURRENT_USER;
+     if Registry.OpenKey(StringReg, false) then
+     begin
+          if Registry.ValueExists('GridOpt') then
+		          begin
+			            result:=Registry.ReadInteger('GridOpt');
+              end
+              else result:=0;
+     end else result:= 0;
+End;
 End.

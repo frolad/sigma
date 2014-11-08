@@ -120,6 +120,8 @@ type
     StressType2: TRadioGroup;
     GroupBox11: TGroupBox;
     ZoneStress2: TStringGrid;
+    Label31: TLabel;
+    Label32: TLabel;
     procedure ZoneCheckBoxClick(Sender: TObject);
     procedure UseLegendClick(Sender: TObject);
     procedure UseForceClick(Sender: TObject);
@@ -363,7 +365,6 @@ procedure TForm1.StressType2Click(Sender: TObject);
 begin
   StressType.ItemIndex := StressType2.ItemIndex;
   //ShowMovingsForm.StressType.ItemIndex := StressType1.ItemIndex;
-  TForm1.StressTypeClick(TObject);
   ShowMovingsForm.LoadMaxMinStressInMaterials;
 end;
 
