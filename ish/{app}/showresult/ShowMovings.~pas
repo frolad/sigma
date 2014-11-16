@@ -1163,7 +1163,7 @@ BEGIN
             Canvas.Draw(x,y,Bitmap);
           END;
         END;
-        IF UseNumNode.Checked THEN BEGIN
+        IF UseNumNode.Unchecked THEN BEGIN
           Canvas.Brush.Color:=clWhite;
           ShowText(Canvas,x,y,IntToStr(OneNode.RenumNum));
         END;
@@ -3992,5 +3992,6 @@ begin
               end
               else result:=0;
      end else result:= 0;
+     Registry.Free;
 End;
 End.

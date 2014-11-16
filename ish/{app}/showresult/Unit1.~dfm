@@ -393,7 +393,7 @@ object Form1: TForm1
       Top = 401
       Width = 346
       Height = 840
-      ActivePage = TabSheet1
+      ActivePage = TabSheet2
       Align = alTop
       Anchors = [akLeft, akTop, akRight, akBottom]
       Font.Charset = DEFAULT_CHARSET
@@ -412,12 +412,105 @@ object Form1: TForm1
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        object Label31: TLabel
+        object GroupBox9: TGroupBox
           Left = 0
-          Top = 208
-          Width = 169
-          Height = 17
-          Caption = 'Label31'
+          Top = 0
+          Width = 332
+          Height = 129
+          Align = alTop
+          Caption = #1050#1086#1086#1088#1076#1080#1085#1072#1090#1099' '#1090#1086#1095#1082#1080' '
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 0
+          object Label17: TLabel
+            Left = 8
+            Top = 104
+            Width = 101
+            Height = 13
+            Caption = #1055#1077#1088#1077#1084#1077#1097#1077#1085#1080#1077' '#1087#1086' Y:'
+          end
+          object Label16: TLabel
+            Left = 8
+            Top = 78
+            Width = 101
+            Height = 13
+            Caption = #1055#1077#1088#1077#1084#1077#1097#1077#1085#1080#1077' '#1087#1086' X:'
+          end
+          object Label27: TLabel
+            Left = 9
+            Top = 24
+            Width = 10
+            Height = 13
+            Caption = 'X:'
+          end
+          object Label28: TLabel
+            Left = 9
+            Top = 48
+            Width = 10
+            Height = 13
+            Caption = 'Y:'
+          end
+          object Label30: TLabel
+            Left = 141
+            Top = 48
+            Width = 54
+            Height = 13
+            Hint = #1053#1072#1087#1088#1103#1078#1077#1085#1080#1077' '#1087#1086' X'
+            Caption = #1053#1086#1084#1077#1088' '#1050#1069':'
+            ParentShowHint = False
+            ShowHint = True
+          end
+          object Label31: TLabel
+            Left = 144
+            Top = 24
+            Width = 38
+            Height = 13
+            Caption = 'Label31'
+          end
+          object InfoMoveX: TEdit
+            Left = 120
+            Top = 76
+            Width = 76
+            Height = 21
+            ReadOnly = True
+            TabOrder = 0
+          end
+          object InfoMoveY: TEdit
+            Left = 120
+            Top = 102
+            Width = 76
+            Height = 21
+            ReadOnly = True
+            TabOrder = 1
+          end
+          object EditMoveX: TEdit
+            Left = 22
+            Top = 21
+            Width = 98
+            Height = 21
+            TabOrder = 2
+            OnChange = EditMoveXChange
+          end
+          object EditMoveY: TEdit
+            Left = 22
+            Top = 46
+            Width = 98
+            Height = 21
+            TabOrder = 3
+            OnChange = EditMoveYChange
+          end
+          object Edit8: TEdit
+            Left = 200
+            Top = 45
+            Width = 102
+            Height = 21
+            ReadOnly = True
+            TabOrder = 4
+          end
         end
         object GroupBox4: TGroupBox
           Left = 0
@@ -432,7 +525,7 @@ object Form1: TForm1
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
-          TabOrder = 0
+          TabOrder = 1
           object Mover: TTrackBar
             Left = 2
             Top = 15
@@ -472,111 +565,11 @@ object Form1: TForm1
             end
           end
         end
-        object GroupBox9: TGroupBox
-          Left = 0
-          Top = 0
-          Width = 332
-          Height = 129
-          Align = alTop
-          Caption = #1050#1086#1086#1088#1076#1080#1085#1072#1090#1099' '#1090#1086#1095#1082#1080' '
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'MS Sans Serif'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 1
-          object Label17: TLabel
-            Left = 8
-            Top = 104
-            Width = 101
-            Height = 13
-            Caption = #1055#1077#1088#1077#1084#1077#1097#1077#1085#1080#1077' '#1087#1086' Y:'
-          end
-          object Label16: TLabel
-            Left = 8
-            Top = 78
-            Width = 101
-            Height = 13
-            Caption = #1055#1077#1088#1077#1084#1077#1097#1077#1085#1080#1077' '#1087#1086' X:'
-          end
-          object Label27: TLabel
-            Left = 9
-            Top = 24
-            Width = 10
-            Height = 13
-            Caption = 'X:'
-          end
-          object Label28: TLabel
-            Left = 9
-            Top = 48
-            Width = 10
-            Height = 13
-            Caption = 'Y:'
-          end
-          object Label30: TLabel
-            Left = 141
-            Top = 24
-            Width = 54
-            Height = 13
-            Hint = #1053#1072#1087#1088#1103#1078#1077#1085#1080#1077' '#1087#1086' X'
-            Caption = #1053#1086#1084#1077#1088' '#1050#1069':'
-            ParentShowHint = False
-            ShowHint = True
-          end
-          object InfoMoveX: TEdit
-            Left = 120
-            Top = 76
-            Width = 76
-            Height = 21
-            ReadOnly = True
-            TabOrder = 0
-          end
-          object InfoMoveY: TEdit
-            Left = 120
-            Top = 102
-            Width = 76
-            Height = 21
-            ReadOnly = True
-            TabOrder = 1
-          end
-          object EditMoveX: TEdit
-            Left = 22
-            Top = 21
-            Width = 98
-            Height = 21
-            TabOrder = 2
-            OnChange = EditMoveXChange
-          end
-          object EditMoveY: TEdit
-            Left = 22
-            Top = 46
-            Width = 98
-            Height = 21
-            TabOrder = 3
-            OnChange = EditMoveYChange
-          end
-          object Edit8: TEdit
-            Left = 200
-            Top = 21
-            Width = 102
-            Height = 21
-            ReadOnly = True
-            TabOrder = 4
-          end
-        end
       end
       object TabSheet2: TTabSheet
         BorderWidth = 3
         Caption = #1053#1072#1087#1088#1103#1078#1077#1085#1080#1103
         ImageIndex = 1
-        object Label32: TLabel
-          Left = 128
-          Top = 275
-          Width = 46
-          Height = 13
-          Caption = 'Label32'
-        end
         object StressType: TRadioGroup
           Left = 0
           Top = 0
@@ -736,6 +729,13 @@ object Form1: TForm1
                 Width = 96
                 Height = 13
                 Caption = #1050#1086#1086#1088#1076#1080#1085#1072#1090#1099' '#1090#1086#1095#1082#1080':'
+              end
+              object Label32: TLabel
+                Left = 152
+                Top = 32
+                Width = 38
+                Height = 13
+                Caption = 'Label32'
               end
               object EditX: TEdit
                 Left = 22

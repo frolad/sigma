@@ -122,7 +122,6 @@ object Form1: TForm1
         Height = 17
         Hint = #1053#1086#1084#1077#1088#1072' '#1091#1079#1083#1086#1074
         Caption = #1053#1086#1084#1077#1088#1072' '#1091#1079#1083#1086#1074
-        Checked = True
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
@@ -131,7 +130,6 @@ object Form1: TForm1
         ParentFont = False
         ParentShowHint = False
         ShowHint = True
-        State = cbChecked
         TabOrder = 3
         OnClick = UseNumNodeClick
       end
@@ -393,7 +391,7 @@ object Form1: TForm1
       Top = 401
       Width = 346
       Height = 840
-      ActivePage = TabSheet1
+      ActivePage = TabSheet2
       Align = alTop
       Anchors = [akLeft, akTop, akRight, akBottom]
       Font.Charset = DEFAULT_CHARSET
@@ -467,8 +465,8 @@ object Form1: TForm1
           object Label31: TLabel
             Left = 144
             Top = 24
-            Width = 153
-            Height = 17
+            Width = 38
+            Height = 13
             Caption = 'Label31'
           end
           object InfoMoveX: TEdit
@@ -733,8 +731,8 @@ object Form1: TForm1
               object Label32: TLabel
                 Left = 152
                 Top = 32
-                Width = 129
-                Height = 17
+                Width = 38
+                Height = 13
                 Caption = 'Label32'
               end
               object EditX: TEdit
