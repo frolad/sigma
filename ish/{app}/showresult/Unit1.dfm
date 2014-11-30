@@ -1,8 +1,8 @@
 object Form1: TForm1
-  Left = 1163
+  Left = 1236
   Top = 0
-  Width = 423
-  Height = 1010
+  Width = 370
+  Height = 564
   Caption = #1055#1072#1088#1072#1084#1077#1090#1088#1099
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -14,10 +14,11 @@ object Form1: TForm1
   PixelsPerInch = 96
   TextHeight = 13
   object ScrollBox1: TScrollBox
-    Left = 57
+    Left = 4
     Top = 0
     Width = 350
-    Height = 972
+    Height = 525
+    VertScrollBar.Position = 243
     VertScrollBar.Range = 790
     Align = alRight
     AutoScroll = False
@@ -25,298 +26,10 @@ object Form1: TForm1
     BevelKind = bkSoft
     BorderStyle = bsNone
     TabOrder = 0
-    object Group4: TGroupBox
-      Left = 0
-      Top = 97
-      Width = 346
-      Height = 304
-      Align = alTop
-      Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080' '
-      Ctl3D = True
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = [fsBold]
-      ParentCtl3D = False
-      ParentFont = False
-      TabOrder = 1
-      object GroupBox3: TGroupBox
-        Left = 2
-        Top = 199
-        Width = 342
-        Height = 57
-        Align = alBottom
-        Caption = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1094#1074#1077#1090#1086#1074#1099#1093' '#1075#1088#1072#1076#1072#1094#1080#1081
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 0
-        object LevelNumber: TLabel
-          Left = 2
-          Top = 42
-          Width = 338
-          Height = 13
-          Align = alBottom
-          Alignment = taCenter
-          Caption = '50'
-        end
-        object ChangeLegend: TTrackBar
-          Left = 2
-          Top = 15
-          Width = 338
-          Height = 27
-          Align = alClient
-          Max = 255
-          Min = 4
-          ParentShowHint = False
-          Position = 4
-          ShowHint = True
-          TabOrder = 0
-          OnChange = ChangeLegendChange
-        end
-      end
-      object UseAxes: TCheckBox
-        Left = 165
-        Top = 16
-        Width = 139
-        Height = 17
-        Hint = #1055#1086#1082#1072#1079#1099#1074#1072#1090#1100' '#1086#1089#1080' '#1082#1086#1086#1088#1076#1080#1085#1072#1090
-        Caption = #1054#1089#1080' '#1082#1086#1086#1088#1076#1080#1085#1072#1090
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        ParentShowHint = False
-        ShowHint = True
-        TabOrder = 1
-        OnClick = UseAxesClick
-      end
-      object UseNumZone: TCheckBox
-        Left = 6
-        Top = 94
-        Width = 127
-        Height = 17
-        Hint = #1053#1086#1084#1077#1088#1072' '#1079#1086#1085
-        Caption = #1053#1086#1084#1077#1088#1072' '#1101#1083#1077#1084#1077#1085#1090#1086#1074
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        ParentShowHint = False
-        ShowHint = True
-        TabOrder = 2
-        OnClick = UseNumZoneClick
-      end
-      object UseNumNode: TCheckBox
-        Left = 6
-        Top = 78
-        Width = 104
-        Height = 17
-        Hint = #1053#1086#1084#1077#1088#1072' '#1091#1079#1083#1086#1074
-        Caption = #1053#1086#1084#1077#1088#1072' '#1091#1079#1083#1086#1074
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        ParentShowHint = False
-        ShowHint = True
-        TabOrder = 3
-        OnClick = UseNumNodeClick
-      end
-      object UseLines: TCheckBox
-        Left = 6
-        Top = 158
-        Width = 139
-        Height = 17
-        Hint = #1051#1080#1085#1080#1080' '#1091#1088#1086#1074#1085#1103
-        TabStop = False
-        Caption = #1051#1080#1085#1080#1080' '#1091#1088#1086#1074#1085#1103
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        ParentShowHint = False
-        ShowHint = True
-        TabOrder = 4
-        OnClick = UseLinesClick
-      end
-      object UseLegend: TCheckBox
-        Left = 6
-        Top = 31
-        Width = 115
-        Height = 17
-        Hint = #1062#1074#1077#1090#1086#1074#1072#1103' '#1096#1082#1072#1083#1072
-        Caption = #1062#1074#1077#1090#1086#1074#1072#1103' '#1096#1082#1072#1083#1072
-        Checked = True
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        ParentShowHint = False
-        ShowHint = True
-        State = cbChecked
-        TabOrder = 5
-        OnClick = UseLegendClick
-      end
-      object UseForce: TCheckBox
-        Left = 6
-        Top = 46
-        Width = 98
-        Height = 17
-        Hint = #1053#1072#1075#1088#1091#1079#1082#1080
-        Caption = #1053#1072#1075#1088#1091#1079#1082#1080
-        Checked = True
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        ParentShowHint = False
-        ShowHint = True
-        State = cbChecked
-        TabOrder = 6
-        OnClick = UseForceClick
-      end
-      object UseBound: TCheckBox
-        Left = 6
-        Top = 62
-        Width = 130
-        Height = 17
-        Hint = #1043#1088#1072#1085#1080#1095#1085#1099#1077' '#1091#1089#1083#1086#1074#1080#1103
-        Caption = #1043#1088#1072#1085#1080#1095#1085#1099#1077' '#1091#1089#1083#1086#1074#1080#1103
-        Checked = True
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        ParentShowHint = False
-        ShowHint = True
-        State = cbChecked
-        TabOrder = 7
-        OnClick = UseBoundClick
-      end
-      object TestElements: TCheckBox
-        Left = 6
-        Top = 142
-        Width = 150
-        Height = 17
-        Hint = #1055#1088#1086#1074#1077#1088#1103#1090#1100' '#1085#1072#1087#1088#1103#1078#1077#1085#1080#1103' '#1074' '#1050#1069
-        Caption = #1055#1088#1086#1074#1077#1088#1082#1072' '#1085#1072' '#1088#1072#1079#1088#1091#1096#1077#1085#1080#1077
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        ParentShowHint = False
-        ShowHint = True
-        TabOrder = 8
-        OnClick = TestElementsClick
-      end
-      object GroupBox6: TGroupBox
-        Left = 2
-        Top = 256
-        Width = 342
-        Height = 46
-        Align = alBottom
-        TabOrder = 9
-        object Label24: TLabel
-          Left = 8
-          Top = 21
-          Width = 27
-          Height = 13
-          Caption = 'NRC'
-        end
-        object Label26: TLabel
-          Left = 104
-          Top = 21
-          Width = 80
-          Height = 13
-          Caption = #1056#1072#1079#1084#1077#1088#1085#1086#1089#1090#1080
-        end
-        object Edit4: TEdit
-          Left = 40
-          Top = 16
-          Width = 49
-          Height = 21
-          Enabled = False
-          TabOrder = 0
-        end
-        object Edit5: TEdit
-          Left = 192
-          Top = 16
-          Width = 81
-          Height = 21
-          Enabled = False
-          TabOrder = 1
-        end
-        object Edit6: TEdit
-          Left = 280
-          Top = 16
-          Width = 33
-          Height = 21
-          Enabled = False
-          TabOrder = 2
-        end
-      end
-      object UseNumMater: TCheckBox
-        Left = 6
-        Top = 110
-        Width = 127
-        Height = 17
-        Hint = #1053#1086#1084#1077#1088#1072' '#1089#1074#1086#1081#1089#1090#1074' '#1050#1069
-        Caption = #1053#1086#1084#1077#1088#1072' '#1089#1074#1086#1081#1089#1090#1074' '#1050#1069
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        ParentShowHint = False
-        ShowHint = True
-        TabOrder = 10
-        OnClick = UseNumMaterClick
-      end
-      object CheckBox1: TCheckBox
-        Left = 165
-        Top = 158
-        Width = 81
-        Height = 17
-        TabStop = False
-        Caption = #1047#1086#1085#1072' '#1085#1091#1083#1103
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        ParentShowHint = False
-        ShowHint = True
-        TabOrder = 11
-        OnClick = CheckBox1Click
-      end
-    end
     object GroupBox2: TGroupBox
       Left = 0
-      Top = 0
-      Width = 346
+      Top = -243
+      Width = 329
       Height = 97
       Align = alTop
       Caption = #1052#1072#1089#1096#1090#1072#1073' '
@@ -346,7 +59,7 @@ object Form1: TForm1
       object LabelScale: TLabel
         Left = 2
         Top = 15
-        Width = 342
+        Width = 325
         Height = 13
         Align = alTop
         Alignment = taCenter
@@ -362,7 +75,7 @@ object Form1: TForm1
       object TrackBar1: TTrackBar
         Left = 2
         Top = 28
-        Width = 342
+        Width = 325
         Height = 37
         Align = alTop
         Max = 20
@@ -388,19 +101,19 @@ object Form1: TForm1
     end
     object PageControl1: TPageControl
       Left = 0
-      Top = 401
-      Width = 346
-      Height = 840
+      Top = 158
+      Width = 329
+      Height = 1017
       ActivePage = TabSheet2
       Align = alTop
-      Anchors = [akLeft, akTop, akRight, akBottom]
+      Anchors = []
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 2
+      TabOrder = 1
       object TabSheet1: TTabSheet
         BorderWidth = 3
         Caption = #1055#1077#1088#1077#1084#1077#1097#1077#1085#1080#1103
@@ -571,7 +284,7 @@ object Form1: TForm1
         object StressType: TRadioGroup
           Left = 0
           Top = 0
-          Width = 332
+          Width = 315
           Height = 80
           Align = alTop
           Caption = #1058#1080#1087' '#1085#1072#1087#1088#1103#1078#1077#1085#1080#1081' '
@@ -599,7 +312,7 @@ object Form1: TForm1
         object GroupBox8: TGroupBox
           Left = 0
           Top = 80
-          Width = 332
+          Width = 315
           Height = 305
           Align = alTop
           Caption = #1052#1077#1090#1086#1076' '#1086#1087#1088#1077#1076#1077#1083#1077#1085#1080#1103' '#1085#1072#1087#1088#1103#1078#1077#1085#1080#1103' '#1074' '#1090#1086#1095#1082#1077' '
@@ -613,7 +326,7 @@ object Form1: TForm1
           object Panel9: TPanel
             Left = 2
             Top = 15
-            Width = 328
+            Width = 311
             Height = 288
             Align = alClient
             BevelOuter = bvNone
@@ -627,7 +340,7 @@ object Form1: TForm1
               Text = 'Edit1'
             end
             object Panel1: TPanel
-              Left = 224
+              Left = 207
               Top = 91
               Width = 104
               Height = 197
@@ -702,7 +415,7 @@ object Form1: TForm1
             object Panel6: TPanel
               Left = 0
               Top = 0
-              Width = 328
+              Width = 311
               Height = 91
               Align = alTop
               BevelOuter = bvNone
@@ -784,7 +497,7 @@ object Form1: TForm1
             object Panel7: TPanel
               Left = 0
               Top = 91
-              Width = 224
+              Width = 207
               Height = 197
               Align = alClient
               BevelOuter = bvNone
@@ -1128,7 +841,7 @@ object Form1: TForm1
         object StressType1: TRadioGroup
           Left = 0
           Top = 0
-          Width = 338
+          Width = 321
           Height = 80
           Align = alTop
           Caption = #1058#1080#1087' '#1085#1072#1087#1088#1103#1078#1077#1085#1080#1081' '
@@ -1156,7 +869,7 @@ object Form1: TForm1
         object GroupBox10: TGroupBox
           Left = 0
           Top = 80
-          Width = 338
+          Width = 321
           Height = 246
           Align = alTop
           Caption = #1042#1077#1088#1093#1085#1077#1077' '#1080' '#1085#1080#1078#1085#1077#1077' '#1079#1085#1072#1095#1077#1085#1080#1077' '#1085#1072#1087#1088#1103#1078#1077#1085#1080#1103' '#1074' '#1079#1086#1085#1072#1093' '
@@ -1200,7 +913,7 @@ object Form1: TForm1
         object StressType2: TRadioGroup
           Left = 0
           Top = 0
-          Width = 338
+          Width = 321
           Height = 80
           Align = alTop
           Caption = #1058#1080#1087' '#1085#1072#1087#1088#1103#1078#1077#1085#1080#1081' '
@@ -1228,7 +941,7 @@ object Form1: TForm1
         object GroupBox11: TGroupBox
           Left = 0
           Top = 80
-          Width = 338
+          Width = 321
           Height = 246
           Align = alTop
           Caption = #1042#1077#1088#1093#1085#1077#1077' '#1080' '#1085#1080#1078#1085#1077#1077' '#1079#1085#1072#1095#1077#1085#1080#1077' '#1085#1072#1087#1088#1103#1078#1077#1085#1080#1103' '#1074' '#1089#1074#1086#1081#1089#1090#1074#1072#1093
@@ -1269,23 +982,311 @@ object Form1: TForm1
     end
     object CheckBox2: TCheckBox
       Left = 6
-      Top = 223
+      Top = -20
       Width = 177
       Height = 17
       Hint = #1054#1090#1086#1073#1088#1072#1078#1077#1085#1080#1077' '#1084#1072#1090#1077#1088#1080#1072#1083#1086#1074' '#1094#1074#1077#1090#1086#1084
       Caption = #1054#1090#1086#1073#1088#1072#1078#1077#1085#1080#1077' '#1089#1074#1086#1081#1089#1090#1074' '#1094#1074#1077#1090#1086#1084
-      TabOrder = 3
+      TabOrder = 2
       OnClick = CheckBox2Click
     end
     object ZoneCheckBox: TCheckBox
       Left = 6
-      Top = 113
+      Top = -130
       Width = 59
       Height = 17
       Hint = #1055#1086#1082#1072#1079#1072#1090#1100' '#1080#1089#1093#1086#1076#1085#1086#1077' '#1088#1072#1079#1073#1080#1077#1085#1080#1077
       Caption = #1047#1086#1085#1099
-      TabOrder = 4
+      TabOrder = 3
       OnClick = ZoneCheckBoxClick
+    end
+    object Group4: TGroupBox
+      Left = 0
+      Top = -146
+      Width = 329
+      Height = 304
+      Align = alTop
+      Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080' '
+      Ctl3D = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentCtl3D = False
+      ParentFont = False
+      TabOrder = 4
+      object GroupBox3: TGroupBox
+        Left = 2
+        Top = 199
+        Width = 325
+        Height = 57
+        Align = alBottom
+        Caption = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1094#1074#1077#1090#1086#1074#1099#1093' '#1075#1088#1072#1076#1072#1094#1080#1081
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+        object LevelNumber: TLabel
+          Left = 2
+          Top = 42
+          Width = 321
+          Height = 13
+          Align = alBottom
+          Alignment = taCenter
+          Caption = '50'
+        end
+        object ChangeLegend: TTrackBar
+          Left = 2
+          Top = 15
+          Width = 321
+          Height = 27
+          Align = alClient
+          Max = 255
+          Min = 4
+          ParentShowHint = False
+          Position = 4
+          ShowHint = True
+          TabOrder = 0
+          OnChange = ChangeLegendChange
+        end
+      end
+      object UseAxes: TCheckBox
+        Left = 165
+        Top = 16
+        Width = 139
+        Height = 17
+        Hint = #1055#1086#1082#1072#1079#1099#1074#1072#1090#1100' '#1086#1089#1080' '#1082#1086#1086#1088#1076#1080#1085#1072#1090
+        Caption = #1054#1089#1080' '#1082#1086#1086#1088#1076#1080#1085#1072#1090
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 1
+        OnClick = UseAxesClick
+      end
+      object UseNumZone: TCheckBox
+        Left = 6
+        Top = 94
+        Width = 127
+        Height = 17
+        Hint = #1053#1086#1084#1077#1088#1072' '#1079#1086#1085
+        Caption = #1053#1086#1084#1077#1088#1072' '#1101#1083#1077#1084#1077#1085#1090#1086#1074
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 2
+        OnClick = UseNumZoneClick
+      end
+      object UseNumNode: TCheckBox
+        Left = 6
+        Top = 78
+        Width = 104
+        Height = 17
+        Hint = #1053#1086#1084#1077#1088#1072' '#1091#1079#1083#1086#1074
+        Caption = #1053#1086#1084#1077#1088#1072' '#1091#1079#1083#1086#1074
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 3
+        OnClick = UseNumNodeClick
+      end
+      object UseLines: TCheckBox
+        Left = 6
+        Top = 158
+        Width = 139
+        Height = 17
+        Hint = #1051#1080#1085#1080#1080' '#1091#1088#1086#1074#1085#1103
+        TabStop = False
+        Caption = #1051#1080#1085#1080#1080' '#1091#1088#1086#1074#1085#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 4
+        OnClick = UseLinesClick
+      end
+      object UseLegend: TCheckBox
+        Left = 6
+        Top = 31
+        Width = 115
+        Height = 17
+        Hint = #1062#1074#1077#1090#1086#1074#1072#1103' '#1096#1082#1072#1083#1072
+        Caption = #1062#1074#1077#1090#1086#1074#1072#1103' '#1096#1082#1072#1083#1072
+        Checked = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        State = cbChecked
+        TabOrder = 5
+        OnClick = UseLegendClick
+      end
+      object UseForce: TCheckBox
+        Left = 6
+        Top = 46
+        Width = 98
+        Height = 17
+        Hint = #1053#1072#1075#1088#1091#1079#1082#1080
+        Caption = #1053#1072#1075#1088#1091#1079#1082#1080
+        Checked = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        State = cbChecked
+        TabOrder = 6
+        OnClick = UseForceClick
+      end
+      object UseBound: TCheckBox
+        Left = 6
+        Top = 62
+        Width = 130
+        Height = 17
+        Hint = #1043#1088#1072#1085#1080#1095#1085#1099#1077' '#1091#1089#1083#1086#1074#1080#1103
+        Caption = #1043#1088#1072#1085#1080#1095#1085#1099#1077' '#1091#1089#1083#1086#1074#1080#1103
+        Checked = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        State = cbChecked
+        TabOrder = 7
+        OnClick = UseBoundClick
+      end
+      object TestElements: TCheckBox
+        Left = 6
+        Top = 142
+        Width = 150
+        Height = 17
+        Hint = #1055#1088#1086#1074#1077#1088#1103#1090#1100' '#1085#1072#1087#1088#1103#1078#1077#1085#1080#1103' '#1074' '#1050#1069
+        Caption = #1055#1088#1086#1074#1077#1088#1082#1072' '#1085#1072' '#1088#1072#1079#1088#1091#1096#1077#1085#1080#1077
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 8
+        OnClick = TestElementsClick
+      end
+      object GroupBox6: TGroupBox
+        Left = 2
+        Top = 256
+        Width = 325
+        Height = 46
+        Align = alBottom
+        TabOrder = 9
+        object Label24: TLabel
+          Left = 8
+          Top = 21
+          Width = 27
+          Height = 13
+          Caption = 'NRC'
+        end
+        object Label26: TLabel
+          Left = 104
+          Top = 21
+          Width = 80
+          Height = 13
+          Caption = #1056#1072#1079#1084#1077#1088#1085#1086#1089#1090#1080
+        end
+        object Edit4: TEdit
+          Left = 40
+          Top = 16
+          Width = 49
+          Height = 21
+          Enabled = False
+          TabOrder = 0
+        end
+        object Edit5: TEdit
+          Left = 192
+          Top = 16
+          Width = 81
+          Height = 21
+          Enabled = False
+          TabOrder = 1
+        end
+        object Edit6: TEdit
+          Left = 280
+          Top = 16
+          Width = 33
+          Height = 21
+          Enabled = False
+          TabOrder = 2
+        end
+      end
+      object UseNumMater: TCheckBox
+        Left = 6
+        Top = 110
+        Width = 127
+        Height = 17
+        Hint = #1053#1086#1084#1077#1088#1072' '#1089#1074#1086#1081#1089#1090#1074' '#1050#1069
+        Caption = #1053#1086#1084#1077#1088#1072' '#1089#1074#1086#1081#1089#1090#1074' '#1050#1069
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 10
+        OnClick = UseNumMaterClick
+      end
+      object CheckBox1: TCheckBox
+        Left = 165
+        Top = 158
+        Width = 81
+        Height = 17
+        TabStop = False
+        Caption = #1047#1086#1085#1072' '#1085#1091#1083#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 11
+        OnClick = CheckBox1Click
+      end
     end
   end
 end

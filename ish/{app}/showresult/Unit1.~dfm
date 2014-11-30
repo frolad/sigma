@@ -1,8 +1,8 @@
 object Form1: TForm1
-  Left = 1163
+  Left = 1217
   Top = 0
-  Width = 423
-  Height = 1010
+  Width = 369
+  Height = 857
   Caption = #1055#1072#1088#1072#1084#1077#1090#1088#1099
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -14,10 +14,10 @@ object Form1: TForm1
   PixelsPerInch = 96
   TextHeight = 13
   object ScrollBox1: TScrollBox
-    Left = 57
+    Left = 3
     Top = 0
     Width = 350
-    Height = 972
+    Height = 818
     VertScrollBar.Range = 790
     Align = alRight
     AutoScroll = False
@@ -122,7 +122,6 @@ object Form1: TForm1
         Height = 17
         Hint = #1053#1086#1084#1077#1088#1072' '#1091#1079#1083#1086#1074
         Caption = #1053#1086#1084#1077#1088#1072' '#1091#1079#1083#1086#1074
-        Checked = True
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
@@ -131,7 +130,6 @@ object Form1: TForm1
         ParentFont = False
         ParentShowHint = False
         ShowHint = True
-        State = cbChecked
         TabOrder = 3
         OnClick = UseNumNodeClick
       end
@@ -392,10 +390,11 @@ object Form1: TForm1
       Left = 0
       Top = 401
       Width = 346
-      Height = 840
+      Height = 687
       ActivePage = TabSheet2
       Align = alTop
       Anchors = [akLeft, akTop, akRight, akBottom]
+      Constraints.MinHeight = 500
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
