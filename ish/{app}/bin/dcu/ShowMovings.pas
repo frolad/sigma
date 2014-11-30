@@ -2484,7 +2484,7 @@ BEGIN
   ELSE BEGIN
     SetDiapazon;
     Show;
-    ChangeLegend.Position:=50;
+    ChangeLegend.Position:=4;
     //BestFitActionClick(nil);
   END;
 END;

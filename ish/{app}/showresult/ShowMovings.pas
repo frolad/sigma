@@ -2543,7 +2543,7 @@ BEGIN
   ELSE BEGIN
     SetDiapazon;
     Show;
-    Form1.ChangeLegend.Position:=50;
+    Form1.ChangeLegend.Position:=4;
     //BestFitActionClick(nil);
   END;
 END;
