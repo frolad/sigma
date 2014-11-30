@@ -27,7 +27,6 @@ type
           L             : MyReal;
           INRG          : integer;
           INBP          : integer;
-		  GRIDOPT       :integer;
      End;
      TMainParamsMaterial=Record   // Добавление материалов (kotov)
           PRM1,PRM2,PRM3{,PRM4,PRM5}   : MyReal;
