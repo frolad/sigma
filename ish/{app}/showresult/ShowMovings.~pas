@@ -540,6 +540,25 @@ Result[3]:=MPM.ORT17;
 
 end;
 
+function LoadCountMaterial( var Error:Integer): Integer;
+VAR
+//  i         : INTEGER;
+//  s         : string;
+//  F         : Text;
+//  DopStress : Real;
+  MP        : TMainParams;
+  MPM       : TMainParamsMaterial;
+BEGIN
+
+Form_Load(Project_GetFormFile);
+
+MP:=GetMainParam;
+
+Error:=0;
+Result:=MP.CountMaterial;
+
+end;
+
 function LoadDopNegStress( var Error:Integer): TStress;
 VAR
   MPM       : TMainParamsMaterial;
@@ -2401,6 +2420,8 @@ PROCEDURE TShowMovingsForm.LegendPaint(Sender: TObject);
     text,st             : STRING;
     z : integer;
   BEGIN
+  ShowLegendHints(Canvas, Left, Top);
+  exit;
     z := Form1.ChangeLegend.Position;
     if (Form1.UseLines.Checked = true) and (Form1.CheckBox1.Checked = true) then z := 4;
     len:=(Legend.Height- 2*Top)/z;
@@ -3435,14 +3456,14 @@ BEGIN
             end
             else
             begin
-                ShowElementOld(Canvas,OneElement);    //kotov
+              ShowElementOld(Canvas,OneElement);    //kotov
             end
           end
          else begin
   // иначе оставить изображение КЭ в исходном виде
              Brush.Style:=bsSolid;
              if LinesShow then begin
-                Brush.Color:=GenerateColor(findlevel-1);  //kotov
+                Brush.Color:=GenerateColor1(findlevel-1);  //kotov
                 ShowElement(Canvas,OneElement);           //kotov
              end
              else
@@ -3697,6 +3718,7 @@ var
   i, j, zoneCout, nodeNum, k, countNodes, curRow, material : integer;
   curElement : TOneElement;
   stress : double;
+  MP    :TMainParams;
   // максимальное положительное напряжение во всей пластине
   maxPosStressP : double;
   // номер КЭ
@@ -3722,7 +3744,7 @@ var
   maxNegStressZ : double;
   // номер КЭ
   maxNegStressZNum : integer;
-  curElemNum, curZoneNum : integer;
+  curElemNum, curZoneNum, countMaterial, error : integer;
 begin
   Form1.ZoneStress2.ColCount := 6;
   // задать заголовок таблицы
@@ -3732,11 +3754,12 @@ begin
   Form1.ZoneStress2.Cells[3, 0] := 'Верхнее';
   Form1.ZoneStress2.Cells[4, 0] := '№ КЭ';
   Form1.ZoneStress2.Cells[5, 0] := 'Нижнее';
-
+  MP := GetMainParam;
+  countMaterial := LoadCountMaterial(error);
   // Определить количество зон
   zoneCount := ZoneContour.GetNumberOfZones();
   curRow:=1;
-for material := 1 to 3 do
+for material := 1 to countMaterial do
 begin
   for curZoneNum := 1 to zoneCount do
   begin
@@ -3776,17 +3799,19 @@ begin
         end;
      // записать данные для зоны
     // номер зоны
-      Form1.ZoneStress2.Cells[0, curRow] := IntToStr(material);
-      Form1.ZoneStress2.Cells[1, curRow] := IntToStr(curZoneNum);
-     // номер кэ с макс положит напряж
-      Form1.ZoneStress2.Cells[2, curRow] := IntToStr(maxPosStressZNum);
+
+       Form1.ZoneStress2.Cells[0, curRow] := IntToStr(material);
+        Form1.ZoneStress2.Cells[1, curRow] := IntToStr(curZoneNum);
+      // номер кэ с макс положит напряж
+        Form1.ZoneStress2.Cells[2, curRow] := IntToStr(maxPosStressZNum);
     // значение положит
-      Form1.ZoneStress2.Cells[3, curRow] := MyFloatToStr(maxPosStressZ);
+        Form1.ZoneStress2.Cells[3, curRow] := MyFloatToStr(maxPosStressZ);
     // номер кэ с макс отриц напряж
-      Form1.ZoneStress2.Cells[4, curRow] := IntToStr(maxNegStressZNum);
+        Form1.ZoneStress2.Cells[4, curRow] := IntToStr(maxNegStressZNum);
     // значение отриц
-      Form1.ZoneStress2.Cells[5, curRow] := MyFloatToStr(maxNegStressZ);
-	  inc(curRow);
+        Form1.ZoneStress2.Cells[5, curRow] := MyFloatToStr(maxNegStressZ);
+	    inc(curRow);
+
     end;
   end;
   /// определить максимумы для всей пластины
@@ -3845,8 +3870,9 @@ begin
   end;
 
 
-  
-  Form1.ZoneStress2.Cells[0, curRow] := 'Макс';
+  if ((maxPosStressP<>0.0) and (maxNegStressP<>0.0) and (maxPosStressAll<>0.0) and (maxNegStressAll<>0.0)) then
+  begin
+  Form1.ZoneStress2.Cells[0, curRow] := 'Макс в св.';
   // номер кэ с макс положит напряж
   Form1.ZoneStress2.Cells[2, curRow] := IntToStr(maxPosStressPNum);
   // значение положит
@@ -3858,7 +3884,7 @@ begin
   inc(curRow);
   Form1.ZoneStress2.RowCount := curRow;
 
-  Form1.ZoneStress2.Cells[0, curRow] := 'MAX-MAX';
+  Form1.ZoneStress2.Cells[0, curRow] := 'Макс в пл.';
   // номер кэ с макс положит напряж
   Form1.ZoneStress2.Cells[2, curRow] := IntToStr(maxPosStressAllNum);
   // значение положит
@@ -3869,7 +3895,7 @@ begin
   Form1.ZoneStress2.Cells[5, curRow] := MyFloatToStr(maxNegStressAll);
   inc(curRow);
   Form1.ZoneStress2.RowCount := curRow;
-  
+  end;
 end;
 end;
 
