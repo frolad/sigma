@@ -50,6 +50,7 @@ TYPE
      TZoneInfo = Array [0..20] Of ZoneStruct;
   TStressArray = ARRAY [1..7] OF MyReal;
   ElStressArray = ARRAY [1..3] OF MyReal;
+
   TShowMovingsForm = Class(TForm)
     ScrollBox1     : TScrollBox;
     Splitter1      : TSplitter;
@@ -257,6 +258,7 @@ TYPE
     procedure EditForceChange(Sender: TObject);
     procedure ColorZeroPlussClick(Sender: TObject);
     PROCEDURE CheckOptimization();
+    procedure QuickSort(var A: array of Integer; iLo, iHi: Integer);
     function GetGridOpt():Integer;
 
 
@@ -269,7 +271,7 @@ TYPE
     ActiveRadio      : TRadioButton;
     MousePushed      : BOOLEAN;
     Force, BackGR    : TColor;
-
+    zGlobal          : integer;
     Error    : WORD;
     PROCEDURE LoadResults(Path:STRING);
     PROCEDURE ChangeDrawSize;
@@ -2292,18 +2294,65 @@ END;
 PROCEDURE TShowMovingsForm.ChangeLegendChange(Sender: TObject);
 VAR
    z:integer;
+   i: integer;
+   zTemp: integer;
+   intArray: array[0..4] of Integer;
+   startStress : Integer;
+   endStress : Integer;
 BEGIN
+startStress:=0;
+endStress:=0;
 if (Spin_0_max.text = '') then exit;
 if (Spin_0_min.text = '') then exit;
+if (Spin_0_min.text = '-') then exit;
+if (Spin_0_max.text = '-') then exit;
+  startStress := StrToInt(Spin_0_min.text);
+  endStress := StrToInt(Spin_0_max.text);
+  if (startStress=0) or (endStress=0) then exit;
+  intArray[0]:=0;
+  intArray[1]:= startStress;
+  intArray[2]:= endStress;
+  intArray[3]:= Round(Elements_Result.Max[Form1.StressType.ItemIndex+1]);
+  intArray[4]:= Round(Elements_Result.Min[Form1.StressType.ItemIndex+1]);
+  QuickSort(intArray, Low(intArray), High(intArray));
+  for i := 0 to 4 do
+  begin
+     if (intArray[i]= Round(Elements_Result.Min[Form1.StressType.ItemIndex+1])) then zTemp:=i;
+     if (intArray[i]= Round(Elements_Result.Max[Form1.StressType.ItemIndex+1])) then zTemp:=i-zTemp;
+  end;
+  zGlobal:=zTemp;
   z := Form1.ChangeLegend.Position;
-  if (Form1.UseLines.Checked = true) and (Form1.CheckBox1.Checked = true) then z := 4;
-
+  if (Form1.UseLines.Checked = true) and (Form1.CheckBox1.Checked = true) then z := zGlobal;
   Form1.ChangeLegend.Hint:=inttostr(z);
   Form1.LevelNumber.Caption:= Form1.ChangeLegend.Hint;             //теперь ползунок "количество цветовых градаций" на основной форме бессмыслененн...
   ChengeLegendLevel;
   MainRePaint;
   LegendRePaint;
 END;
+
+procedure TShowMovingsForm.QuickSort(var A: array of Integer; iLo, iHi: Integer);
+var   Lo, Hi, Pivot, T: Integer;
+begin
+  Lo := iLo;
+  Hi := iHi;
+  Pivot := A[(Lo + Hi) div 2];
+  repeat
+    while A[Lo] < Pivot do
+    Inc(Lo);
+    while A[Hi] > Pivot do
+      Dec(Hi) ;
+      if Lo <= Hi then
+      begin
+        T := A[Lo];
+        A[Lo] := A[Hi];
+        A[Hi] := T;
+        Inc(Lo) ;
+        Dec(Hi) ;
+      end;
+  until Lo > Hi;
+  if Hi > iLo then QuickSort(A, iLo, Hi);
+  if Lo < iHi then QuickSort(A, Lo, iHi);
+end;
 
 
 
@@ -2423,7 +2472,7 @@ PROCEDURE TShowMovingsForm.LegendPaint(Sender: TObject);
   ShowLegendHints(Canvas, Left, Top);
   exit;
     z := Form1.ChangeLegend.Position;
-    if (Form1.UseLines.Checked = true) and (Form1.CheckBox1.Checked = true) then z := 4;
+    if (Form1.UseLines.Checked = true) and (Form1.CheckBox1.Checked = true) then z := zGlobal;
     len:=(Legend.Height- 2*Top)/z;
     for pos := 0 to z do
     begin
@@ -2473,7 +2522,7 @@ PROCEDURE TShowMovingsForm.LegendPaint(Sender: TObject);
     Rect.Right:=Left+Width;
     Canvas.Pen.Color:=clBlack;
     z := Form1.ChangeLegend.Position;
-    if (Form1.UseLines.Checked = true) and (Form1.CheckBox1.Checked = true) then z := 4;
+    if (Form1.UseLines.Checked = true) and (Form1.CheckBox1.Checked = true) then z := zGlobal;
     FOR i:=0 TO z-1 DO BEGIN
       k:=z-1-i;
       if LinesShow = true then
@@ -2507,7 +2556,7 @@ BEGIN
       Bitmap.Height:=Legend.Height;
     END;
     z := Form1.ChangeLegend.Position;
-    if (Form1.UseLines.Checked = true) and (Form1.CheckBox1.Checked = true) then z := 4;
+    if (Form1.UseLines.Checked = true) and (Form1.CheckBox1.Checked = true) then z := zGlobal;
 
     IF UseBuffer.Checked THEN BEGIN
       ShowLegend(BitMap.Canvas,paintdx,paintdy,20,(Legend.Height-paintdy*2)/z);
