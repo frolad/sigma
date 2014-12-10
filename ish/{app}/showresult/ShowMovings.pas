@@ -2469,10 +2469,13 @@ PROCEDURE TShowMovingsForm.LegendPaint(Sender: TObject);
     text,st             : STRING;
     z : integer;
   BEGIN
-  ShowLegendHints(Canvas, Left, Top);
-  exit;
+  if (Form1.UseLines.Checked = true) and (Form1.CheckBox1.Checked = false) then
+  begin
+    ShowLegendHints(Canvas, Left, Top);
+    exit;
+  end;
     z := Form1.ChangeLegend.Position;
-    if (Form1.UseLines.Checked = true) and (Form1.CheckBox1.Checked = true) then z := zGlobal;
+    if (Form1.UseLines.Checked = true) and (Form1.CheckBox1.Checked = true) then z := 4;
     len:=(Legend.Height- 2*Top)/z;
     for pos := 0 to z do
     begin
