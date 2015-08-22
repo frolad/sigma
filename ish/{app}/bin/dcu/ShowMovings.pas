@@ -242,6 +242,7 @@ TYPE
     procedure SpeedButton7Click(Sender: TObject);
     procedure SpeedButton6Click(Sender: TObject);
     procedure SpeedButton5Click(Sender: TObject);
+	procedure ParamsButtonClick(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
     procedure EditMoveXChange(Sender: TObject);
     procedure Spin_0_Exit(Sender: TObject);
@@ -3211,6 +3212,11 @@ begin
 end;
 
 procedure TShowMovingsForm.SpeedButton6Click(Sender: TObject);
+begin
+  //Group2.SetFocus;
+end;
+
+procedure TShowMovingsForm.ParamsButtonClick(Sender: TObject);
 begin
   //Group2.SetFocus;
 end;

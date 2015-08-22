@@ -4,11 +4,12 @@ C       ПОДПPOГPAММА ЗАДАНИЯ ГPАНИЧНЫХ УCЛOBИЙ
 C          BЫЗЫBAETCЯ ИЗ MAIN , BЫЗЫBAEMЫX MOДУЛEЙ HET.    
 C ==================================================================
 C wwwwwwwwwwwwwwwwww начало кода BOUND wwwwwwwwwwwwwwwwwwwwwwwwwwwww
-C   для Example 3
+C                                                   для Example 3
+C Закрепляются от перемещений по осям Х и Y все узлы c координатой X=0.
 C ==================================================================
       SUBROUTINE BOUND(NN,CORD,NBC,NFIX,DB,IPR,NP)
       DIMENSION CORD(1),NBC(1),NFIX(1)
-      REAL Y1,X1
+    
       LOGICAL*1 IPR(50)
 * IPR массив управления печатью      
       NB=0

@@ -2,14 +2,14 @@
 ;Design by Paramonov Maxim, MAI - 609, 2012
 
 [Setup]
-AppName=Sigma 7.1
-AppVerName=Sigma 7.1
-DefaultDirName=C:\Program Files\MAI\Sigma 7.1
-DefaultGroupName=Sigma 7.1
-OutputBaseFilename=setup_Sigma7.1
+AppName=Sigma 7.2
+AppVerName=Sigma 7.2
+DefaultDirName=C:\Program Files\MAI\Sigma 7.2
+DefaultGroupName=Sigma 7.2
+OutputBaseFilename=setup_Sigma7.2
 VersionInfoCompany=Ã¿» Í‡Ù.609
-VersionInfoVersion=7.1.0.0
-AppVersion=7.1
+VersionInfoVersion=7.2.0.0
+AppVersion=7.2
 AppPublisher=Ã¿» Í‡Ù.609
 AppContact=Ã¿» Í‡Ù.609
 Compression=lzma

@@ -198,6 +198,7 @@ TYPE
     ZoneCheckBox: TCheckBox;
     Button1: TButton;
     ColorZeroPluss: TPanel;
+    ParamsButton: TSpeedButton;
     PROCEDURE FormCreate(Sender: TObject);
     PROCEDURE FormDestroy(Sender: TObject);
     PROCEDURE FormResize(Sender: TObject);
@@ -245,7 +246,7 @@ TYPE
     procedure ToolButton1Click(Sender: TObject);
     procedure SpeedButton7Click(Sender: TObject);
     procedure SpeedButton6Click(Sender: TObject);
-    procedure SpeedButton5Click(Sender: TObject);
+    procedure ParamsButtonClick(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
     procedure EditMoveXChange(Sender: TObject);
     procedure Spin_0_Exit(Sender: TObject);
@@ -3379,10 +3380,9 @@ begin
   //Group2.SetFocus;
 end;
 
-procedure TShowMovingsForm.SpeedButton5Click(Sender: TObject);
-   var ttt:TPrintService;
+procedure TShowMovingsForm.ParamsButtonClick(Sender: TObject);
 begin
-             ttt.PrinterSetupDialog;
+       Form1.Show;
 end;
 
 procedure TShowMovingsForm.Timer1Timer(Sender: TObject);

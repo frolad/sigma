@@ -4,13 +4,16 @@ C       ПОДПPOГPAММА HAЛOЖEНИЯ ГPАНИЧНЫХ УCЛOBИЙ
 C          BЫЗЫBAETCЯ ИЗ MAIN , BЫЗЫBAEMЫX MOДУЛEЙ HET.       
 C ==================================================================
 C wwwwwwwwwwwwwwwwww начало кода BOUND wwwwwwwwwwwwwwwwwwwwwwwwwwwww
+C                                                для Example 2
+C Закрепляются от перемещений вдоль оси Y  все узлы c координатой Y=0.
+C Закрепляются от перемещений вдоль оси X  все узлы c координатой Х=0.
 C ==================================================================
       SUBROUTINE BOUND(NN,CORD,NBC,NFIX,DB,IPR,NP)
 C
 C       ПPOГPММA HAЛOЖEНИЯ ГPЧH УCЛOBИЙ,BЫЗЫBAETCЯ ИЗ MAIN1
 C
       DIMENSION CORD(1),NBC(1),NFIX(1)
-      REAL Y1,X1
+
       LOGICAL*1 IPR(50)
 * IPR массив управления печатью      
       NB=0

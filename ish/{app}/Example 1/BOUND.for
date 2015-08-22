@@ -1,14 +1,16 @@
-C Файл BOUND
+C Файл BOUND.for
 C Содержит подпрограмму BOUND
 C       ПОДПPOГPAММА HAЛOЖEНИЯ ГPАНИЧНЫХ УCЛOBИЙ
 C          BЫЗЫBAETCЯ ИЗ MAIN , BЫЗЫBAEMЫX MOДУЛEЙ HET.       
 C ==================================================================
-C wwwwwwwwwwwwwwwwww начало кода BOUND wwwwwwwwwwwwwwwwwwwwwwwwwwwww
-C для Example 1
+C ================== начало кода BOUND =============================
+C                                                для Example 1
+C Закрепляются от перемещений вдоль оси Y  все узлы c координатой Y=0.
+C Закрепляются от перемещений вдоль оси X  все узлы c координатой Х=40.
 C ==================================================================
       SUBROUTINE BOUND(NN,CORD,NBC,NFIX,DB,IPR,NP)
 C
-C       ПPOГPA HAЛOЖEИЯ ГPЧH УCЛOBИЙ,BЫЗЫBAETCЯ ИЗ MAIN1
+C       ПPOГP. HAЛOЖ. ГPАН. УCЛOBИЙ,BЫЗЫBAETCЯ ИЗ MAIN1
 C
       DIMENSION CORD(1),NBC(1),NFIX(1)
       LOGICAL*1 IPR(50)
@@ -33,6 +35,6 @@ C
       RETURN
       END
 C ==================================================================
-C wwwwwwwwwwwwwwwwww конец кода BOUND  wwwwwwwwwwwwwwwwwwwwwwwwwwwww
+C ================== конец кода BOUND  =============================
 C ==================================================================
-C конец файла BOUND
+C конец файла BOUND.for
