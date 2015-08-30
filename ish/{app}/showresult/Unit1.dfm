@@ -887,7 +887,7 @@ object Form1: TForm1
             ColCount = 6
             DefaultColWidth = 36
             DefaultRowHeight = 18
-            Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goDrawFocusSelected, goTabs]
+            Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goDrawFocusSelected, goEditing, goTabs]
             TabOrder = 0
             ColWidths = (
               40
@@ -959,7 +959,7 @@ object Form1: TForm1
             ColCount = 6
             DefaultColWidth = 36
             DefaultRowHeight = 18
-            Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goDrawFocusSelected, goTabs]
+            Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goDrawFocusSelected, goEditing, goTabs]
             TabOrder = 0
             ColWidths = (
               60

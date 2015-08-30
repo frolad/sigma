@@ -494,10 +494,10 @@ Root: HKCU; Subkey: "SOFTWARE\MAI.609\SIGMA32\3.0\RupertGraph\SysSettings\curren
 ;Filename: "{app}\bin\Sigma32.exe"; Description: "{cm:LaunchProgram,Sigma 7.0}"; 
 
 [Icons]
-Name: "{group}\Sigma 7.1"; Filename: "{app}\bin\Sigma32.exe";
-Name: "{app}\Sigma 7.1"; Filename: "{app}\bin\Sigma32.exe"; 
-Name: "{group}\{cm:UninstallProgram,Sigma 7.1}"; Filename: "{uninstallexe}"; 
-Name: "{userdesktop}\Sigma 7.1"; Filename: "{app}\bin\Sigma32.exe"; WorkingDir: "{app}\bin\"; Tasks: "desktopicon"; 
+Name: "{group}\Sigma 7.2"; Filename: "{app}\bin\Sigma32.exe";
+Name: "{app}\Sigma 7.2"; Filename: "{app}\bin\Sigma32.exe"; 
+Name: "{group}\{cm:UninstallProgram,Sigma 7.2}"; Filename: "{uninstallexe}"; 
+Name: "{userdesktop}\Sigma 7.2"; Filename: "{app}\bin\Sigma32.exe"; WorkingDir: "{app}\bin\"; Tasks: "desktopicon"; 
   
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; 
