@@ -102,7 +102,7 @@ object Form1: TForm1
       Top = 401
       Width = 346
       Height = 420
-      ActivePage = TabSheet6
+      ActivePage = TabSheet3
       Align = alTop
       Anchors = []
       Font.Charset = DEFAULT_CHARSET
@@ -619,7 +619,7 @@ object Form1: TForm1
         object GroupBox5: TGroupBox
           Left = 0
           Top = 0
-          Width = 315
+          Width = 332
           Height = 67
           Align = alTop
           Caption = #1054#1090#1086#1073#1088#1072#1078#1077#1085#1080#1077' '#1074#1077#1082#1090#1086#1088#1072' '#1089#1080#1083#1099' '
@@ -652,7 +652,7 @@ object Form1: TForm1
           object ForceTrackBar: TTrackBar
             Left = 2
             Top = 15
-            Width = 311
+            Width = 328
             Height = 25
             Align = alTop
             Max = 7
@@ -665,7 +665,7 @@ object Form1: TForm1
         object GroupBox7: TGroupBox
           Left = 0
           Top = 67
-          Width = 315
+          Width = 332
           Height = 246
           Align = alTop
           Caption = #1055#1088#1080#1083#1086#1078#1077#1085#1085#1099#1077' '#1089#1080#1083#1099' '
@@ -679,13 +679,13 @@ object Form1: TForm1
           object StringGrid1: TStringGrid
             Left = 2
             Top = 15
-            Width = 311
+            Width = 328
             Height = 229
             Align = alClient
             ColCount = 6
             DefaultColWidth = 36
             DefaultRowHeight = 18
-            Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goDrawFocusSelected, goTabs]
+            Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goDrawFocusSelected, goEditing, goTabs]
             TabOrder = 0
             ColWidths = (
               40
