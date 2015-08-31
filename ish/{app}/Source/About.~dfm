@@ -29,7 +29,7 @@ object FAbout: TFAbout
     Width = 157
     Height = 48
     AutoSize = False
-    Caption = '7.0a'
+    Caption = '7.2'
     Font.Charset = ANSI_CHARSET
     Font.Color = clRed
     Font.Height = -37
@@ -61,7 +61,7 @@ object FAbout: TFAbout
     Height = 16
     Alignment = taCenter
     AutoSize = False
-    Caption = #1042#1077#1088#1089#1080#1103' '#1086#1090' 03.04.2014'
+    Caption = #1042#1077#1088#1089#1080#1103' '#1086#1090' 12.04.2014'
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clBlue
     Font.Height = -13
@@ -78,7 +78,7 @@ object FAbout: TFAbout
     Alignment = taRightJustify
     Anchors = [akLeft, akBottom]
     AutoSize = False
-    Caption = 'mai6@cosmos.com.ru ; sva2008@cosmos.com.ru'
+    Caption = '600@mai.ru; vladimir.stolyarchuk@gmail.com'
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clNavy
     Font.Height = -11
@@ -316,7 +316,11 @@ object FAbout: TFAbout
       
         #1057#1090#1091#1076#1077#1085#1090#1099' '#1061#1072#1081#1088#1091#1083#1083#1080#1085' '#1048'.'#1056'. '#1080' '#1060#1088#1086#1083#1086#1074' '#1042'.'#1042'. - '#1080#1089#1087#1088#1072#1074#1083#1077#1085#1080#1077' '#1086#1096#1080#1073#1086#1082', '#1076#1086#1088#1072 +
         #1073#1086#1090#1082#1080' '
-      #1087#1088#1086#1075#1088#1072#1084#1084#1099)
+      #1087#1088#1086#1075#1088#1072#1084#1084#1099
+      
+        '============================ 2015 ==============================' +
+        '==='
+      #1044#1080#1087#1083#1086#1084#1085#1080#1082' '#1071#1082#1086#1074#1083#1077#1074' '#1044'.'#1040'. - '#1074#1099#1087#1091#1089#1082' '#1074#1077#1088#1089#1080#1080' 7.2')
     ReadOnly = True
     ScrollBars = ssVertical
     TabOrder = 1

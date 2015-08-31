@@ -7,7 +7,7 @@ uses
 
 const
     app_version   = '7.2';
-    app_version_date   = '22.08.2015';
+    app_version_date   = '30.08.2015';
     AppTitle = 'Sigma';
 
 type
